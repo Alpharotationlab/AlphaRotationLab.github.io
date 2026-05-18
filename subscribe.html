@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subscribe — Alpha Rotation Lab</title>
+<meta name="description" content="Subscribe to Alpha Rotation Lab for weekly systematic ETF rotation research. US and A-share markets. From $9.99 USD/month. Cancel anytime.">
+<meta property="og:title" content="Subscribe — Alpha Rotation Lab">
+<meta property="og:description" content="Weekly ETF rotation research. US + A-share. From $9.99 USD/month.">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050C1A;--card:#0F1E35;--card-h:#142440;
+  --green:#00D68F;--gdim:#00D68F18;
+  --gold:#F5A623;--ydim:#F5A62318;
+  --blue:#4A9EFF;--bdim:#4A9EFF12;
+  --red:#FF5A5A;
+  --t1:#EEF2FF;--t2:#8B9EC7;--t3:#4A5F84;
+  --b1:rgba(74,158,255,.12);--b2:rgba(74,158,255,.26);
+  --fd:'Syne',system-ui,-apple-system,sans-serif;
+  --fb:'Outfit',system-ui,-apple-system,'PingFang SC','PingFang TC','Microsoft YaHei',sans-serif;
+  --fm:'JetBrains Mono','Courier New',Consolas,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:16px;line-height:1.7;overflow-x:hidden;}
+.grid-bg{position:fixed;inset:0;background-image:linear-gradient(rgba(74,158,255,.022)1px,transparent 1px),linear-gradient(90deg,rgba(74,158,255,.022)1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0;}
+nav{position:sticky;top:0;z-index:100;background:rgba(5,12,26,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--b1);}
+.nav-inner{max-width:1060px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px;}
+.nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0;}
+.logo-text-col{display:flex;flex-direction:column;}
+.logo-en{font-family:var(--fd);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--t1);line-height:1.2;display:block;}
+.logo-zh{font-size:10.5px;color:var(--t3);letter-spacing:.06em;display:block;margin-top:1px;}
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-link{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:.06em;padding:7px 12px;border-radius:6px;text-decoration:none;color:var(--t3);transition:all .18s;white-space:nowrap;}
+.nav-link:hover{color:var(--t2);background:rgba(74,158,255,.06);}
+.nav-link.active-page{color:var(--blue);background:var(--bdim);}
+.nav-right{display:flex;align-items:center;gap:8px;}
+.lang-toggle{display:flex;background:var(--card);border:1px solid var(--b1);border-radius:7px;overflow:hidden;}
+.lang-btn{font-family:var(--fm);font-size:10.5px;font-weight:700;padding:5px 10px;letter-spacing:.06em;border:none;cursor:pointer;background:transparent;color:var(--t3);transition:all .18s;}
+.lang-btn.active{background:var(--bdim);color:var(--blue);}
+.nav-cta{background:var(--green);color:#050C1A;font-family:var(--fd);font-size:11.5px;font-weight:800;padding:8px 17px;border-radius:6px;text-decoration:none;letter-spacing:.04em;white-space:nowrap;transition:opacity .2s;}
+.nav-cta:hover{opacity:.85;}
+@media(max-width:760px){.nav-links{display:none;}.logo-zh{display:none;}}
+.wrap{max-width:1060px;margin:0 auto;padding:0 28px;position:relative;z-index:1;}
+section{padding:68px 0;}
+section+section{border-top:1px solid var(--b1);}
+.s-label{font-family:var(--fm);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
+.s-title{font-family:var(--fd);font-size:clamp(22px,3.8vw,32px);font-weight:800;line-height:1.18;margin-bottom:12px;}
+.s-sub{font-size:15px;color:var(--t2);max-width:600px;margin-bottom:36px;line-height:1.7;}
+[data-lang]{display:none;}[data-lang].active{display:block;}span[data-lang].active{display:inline;}
+.btn-g{display:inline-flex;align-items:center;gap:7px;background:var(--green);color:#050C1A;font-family:var(--fd);font-size:14px;font-weight:800;padding:13px 28px;border-radius:8px;text-decoration:none;transition:all .2s;}
+.btn-g:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,214,143,.3);}
+.btn-o{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--b2);color:var(--t2);font-family:var(--fd);font-size:13.5px;font-weight:600;padding:12px 22px;border-radius:8px;text-decoration:none;transition:all .2s;}
+.btn-o:hover{border-color:var(--blue);color:var(--blue);}
+.btn-ghost{display:inline-flex;align-items:center;gap:6px;font-family:var(--fm);font-size:11.5px;color:var(--blue);text-decoration:none;letter-spacing:.05em;transition:color .18s;}
+.btn-ghost:hover{color:var(--t1);}
+footer{padding:44px 0 24px;border-top:1px solid var(--b1);}
+.foot-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.foot-logo{display:flex;align-items:center;gap:10px;}
+.foot-en{font-family:var(--fd);font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--t1);display:block;}
+.foot-zh{font-size:10.5px;color:var(--t3);display:block;margin-top:1px;}
+.foot-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+.foot-link{font-family:var(--fm);font-size:11px;color:var(--t3);text-decoration:none;letter-spacing:.04em;transition:color .18s;}
+.foot-link:hover{color:var(--t2);}
+.foot-copy{font-size:10.5px;color:var(--t3);font-family:var(--fm);margin-top:14px;padding-top:14px;border-top:1px solid var(--b1);text-align:center;letter-spacing:.03em;}
+.pulse{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;display:inline-block;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
+@media(max-width:640px){section{padding:48px 0;}.wrap{padding:0 18px;}}
+
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px;}
+@media(max-width:720px){.pricing-grid{grid-template-columns:1fr;}}
+.pcard{background:var(--card);border:1px solid var(--b1);border-radius:14px;padding:28px 22px;position:relative;}
+.pcard.feat{border:2px solid var(--green);}
+.pcard.feat::before{content:'';position:absolute;top:-1px;left:12%;right:12%;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent);}
+.pbadge{display:inline-block;font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:.08em;padding:3px 10px;border-radius:100px;margin-bottom:14px;text-transform:uppercase;}
+.pbg{background:var(--gdim);color:var(--green);border:1px solid rgba(0,214,143,.22);}
+.pbb{background:var(--bdim);color:var(--blue);border:1px solid rgba(74,158,255,.22);}
+.pby{background:var(--ydim);color:var(--gold);border:1px solid rgba(245,166,35,.22);}
+.pname{font-family:var(--fd);font-size:14px;font-weight:700;margin-bottom:4px;}
+.ptag{font-size:12px;color:var(--t3);margin-bottom:18px;}
+.pnum{font-family:var(--fd);font-size:44px;font-weight:800;line-height:1;margin-bottom:3px;}
+.pnum sup{font-size:20px;vertical-align:top;margin-top:7px;}
+.pper{font-size:12px;color:var(--t2);margin-bottom:20px;font-family:var(--fm);}
+.pfeats{list-style:none;margin-bottom:22px;}
+.pfeats li{display:flex;gap:8px;font-size:13px;color:var(--t2);padding:6px 0;border-bottom:1px solid var(--b1);}
+.pfeats li:last-child{border-bottom:none;}
+.ckg{color:var(--green);flex-shrink:0;}.ckb{color:var(--blue);flex-shrink:0;}.cky{color:var(--gold);flex-shrink:0;}
+.pcta{display:block;text-align:center;padding:12px;border-radius:7px;font-family:var(--fd);font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;}
+.pcta-g{background:var(--green);color:#050C1A;}.pcta-g:hover{opacity:.88;}
+.pcta-o{border:1px solid var(--b2);color:var(--t2);}.pcta-o:hover{border-color:var(--blue);color:var(--blue);}
+.psave{font-size:11px;color:var(--t3);font-family:var(--fm);text-align:center;margin-top:10px;}
+.psave strong{color:var(--gold);}
+.cmp-tbl{width:100%;border-collapse:collapse;margin-top:24px;}
+.cmp-tbl th{font-family:var(--fm);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);padding:11px 15px;text-align:left;border-bottom:1px solid var(--b1);}
+.cmp-tbl td{padding:10px 15px;font-size:13px;color:var(--t2);border-bottom:1px solid var(--b1);}
+.cmp-tbl td:not(:first-child){text-align:center;}
+.yes{color:var(--green);font-size:16px;}.no-{color:var(--t3);font-size:14px;}
+.faq-item{padding:20px 0;border-bottom:1px solid var(--b1);}
+.faq-q{font-family:var(--fd);font-size:15px;font-weight:700;margin-bottom:8px;}
+.faq-a{font-size:13px;color:var(--t2);line-height:1.7;}
+.disc{background:rgba(10,22,40,.7);border:1px solid var(--b1);border-radius:12px;padding:22px;font-family:var(--fm);font-size:11px;color:var(--t3);line-height:1.9;}
+.disc strong{color:var(--gold);}
+
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:8px 6px;border:none;background:transparent;width:36px;height:36px;}
+.hamburger span{display:block;width:20px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-nav{display:none;position:fixed;top:62px;left:0;right:0;background:rgba(5,12,26,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--b1);padding:16px 28px 20px;z-index:99;}
+.mobile-nav.open{display:block;}
+.mobile-nav a{display:flex;justify-content:space-between;align-items:center;padding:13px 0;font-family:var(--fm);font-size:13px;font-weight:700;color:var(--t2);text-decoration:none;border-bottom:1px solid var(--b1);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav a span{font-size:11px;color:var(--t3);}
+@media(max-width:760px){.nav-links{display:none;}.hamburger{display:flex;}.logo-zh{display:none;}}
+[id]{scroll-margin-top:80px;}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<nav><div class="nav-inner">
+  <a href="index.html" class="nav-logo"><svg width="36" height="36" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="#00D68F" stroke-width="2" fill="#020811"/><circle cx="40" cy="40" r="27" stroke="rgba(74,158,255,0.16)" stroke-width="1" fill="none"/><path d="M40 10C60 10 70 22 70 40S60 70 40 70" stroke="#00D68F" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M40 10C20 10 10 22 10 40S20 70 40 70" stroke="#4A9EFF" stroke-width="2.5" stroke-linecap="round" fill="none" stroke-dasharray="4 5"/><path d="M67 36.5L71 41L75 36.5" stroke="#00D68F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><text x="40" y="49" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="bold" fill="#00D68F">α</text></svg>
+    <div class="logo-text-col"><span class="logo-en">Alpha Rotation Lab</span><span class="logo-zh">阿爾法輪動實驗室</span></div>
+  </a>
+  <div class="nav-links"><a href="index.html" class="nav-link"><span data-lang="en" class="active">Home</span><span data-lang="zh">首頁</span></a><a href="research.html" class="nav-link"><span data-lang="en" class="active">Research</span><span data-lang="zh">研究</span></a><a href="sample.html" class="nav-link"><span data-lang="en" class="active">Publication</span><span data-lang="zh">發佈</span></a><a href="subscribe.html" class="nav-link active-page"><span data-lang="en" class="active">Subscribe</span><span data-lang="zh">訂閱</span></a></div>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+    </div>
+    <a href="subscribe.html" class="nav-cta">
+      <span data-lang="en" class="active">Subscribe</span>
+      <span data-lang="zh">立即訂閱</span>
+    </a>
+  </div>
+</div></nav>
+
+<section style="padding:58px 0 0;">
+  <div class="wrap" style="text-align:center;">
+    <div class="s-label"><span data-lang="en" class="active">Subscription Plans</span><span data-lang="zh">訂閱方案</span></div>
+    <h1 class="s-title" style="font-size:clamp(28px,5vw,44px);">
+      <span data-lang="en" class="active">Weekly research access.<br>Cancel anytime.</span>
+      <span data-lang="zh">月度研究訂閱<br>隨時取消</span>
+    </h1>
+    <p class="s-sub" style="margin:0 auto;max-width:520px;">
+      <span data-lang="en" class="active">All subscribers receive identical published research. Pricing in USD. Bundle saves $4.98/month vs buying both separately.</span>
+      <span data-lang="zh">所有訂閱者獲得相同的已發佈研究內容。定價以美元計。套餐比分開購買每月節省 4.98 美元。</span>
+    </p>
+  </div>
+</section>
+
+<section style="padding:32px 0 72px;">
+  <div class="wrap">
+    <div class="pricing-grid">
+      <div class="pcard">
+        <div class="pbadge pbb">🇨🇳 A-Share Market</div>
+        <div class="pname"><span data-lang="en" class="active">China ETF Rotation</span><span data-lang="zh">A 股 ETF 輪動</span></div>
+        <div class="ptag"><span data-lang="en" class="active">A-share ETF research, weekly</span><span data-lang="zh">A 股 ETF 研究，每週更新</span></div>
+        <div class="pnum"><sup>$</sup>9<span style="font-size:22px;font-family:var(--fm);font-weight:400;">.99</span></div>
+        <div class="pper"><span data-lang="en" class="active">USD / month · Cancel anytime</span><span data-lang="zh">美元 / 月 · 隨時取消</span></div>
+        <ul class="pfeats">
+          <li><span class="ckb">✓</span><span data-lang="en" class="active">Full weekly A-share ETF model rankings</span><span data-lang="zh">每週完整 A 股 ETF 模型排名</span></li>
+          <li><span class="ckb">✓</span><span data-lang="en" class="active">All momentum status labels</span><span data-lang="zh">全部動量狀態標籤</span></li>
+          <li><span class="ckb">✓</span><span data-lang="en" class="active">A-share risk score breakdown (0–100)</span><span data-lang="zh">A 股風險評分分解（0–100）</span></li>
+          <li><span class="ckb">✓</span><span data-lang="en" class="active">Xueqiu paper portfolio tracking</span><span data-lang="zh">雪球模擬實盤追蹤</span></li>
+          <li><span class="ckb">✓</span><span data-lang="en" class="active">Weekly research commentary</span><span data-lang="zh">每週研究評論</span></li>
+          <li><span class="ckb">✓</span><span data-lang="en" class="active">Historical signal archive</span><span data-lang="zh">歷史信號存檔</span></li>
+        </ul>
+        <a href="[LEMONSQUEEZY_CHINA_LINK]" class="pcta pcta-o">
+          <span data-lang="en" class="active">Subscribe — $9.99 USD/mo</span>
+          <span data-lang="zh">訂閱 — 9.99 美元/月</span>
+        </a>
+      </div>
+
+      <div class="pcard feat">
+        <div class="pbadge pbg">⭐ Best Value · 最超值</div>
+        <div class="pname"><span data-lang="en" class="active">ETF Rotation Bundle</span><span data-lang="zh">中美雙市場套餐</span></div>
+        <div class="ptag"><span data-lang="en" class="active">US + A-share research combined</span><span data-lang="zh">美股 + A 股雙市場全覆蓋</span></div>
+        <div class="pnum" style="color:var(--green);"><sup>$</sup>14<span style="font-size:22px;font-family:var(--fm);font-weight:400;color:var(--green);">.99</span></div>
+        <div class="pper"><span data-lang="en" class="active">USD / month · saves $4.98 vs separate</span><span data-lang="zh">美元 / 月 · 比分開購買節省 4.98 美元</span></div>
+        <ul class="pfeats">
+          <li><span class="ckg">✓</span><span data-lang="en" class="active"><strong>Everything in both plans</strong></span><span data-lang="zh"><strong>包含兩個方案的全部內容</strong></span></li>
+          <li><span class="ckg">✓</span><span data-lang="en" class="active">US + A-share full weekly rankings</span><span data-lang="zh">美股 + A 股每週完整排名</span></li>
+          <li><span class="ckg">✓</span><span data-lang="en" class="active">Dual market risk dashboard</span><span data-lang="zh">雙市場風險儀表板</span></li>
+          <li><span class="ckg">✓</span><span data-lang="en" class="active">TradingView + Xueqiu paper tracking</span><span data-lang="zh">TradingView + 雪球模擬實盤追蹤</span></li>
+          <li><span class="ckg">✓</span><span data-lang="en" class="active">Unified Notion research dashboard</span><span data-lang="zh">Notion 統一研究中控台</span></li>
+          <li><span class="ckg">✓</span><span data-lang="en" class="active">Priority market alert notifications</span><span data-lang="zh">優先市場預警通知</span></li>
+        </ul>
+        <a href="[LEMONSQUEEZY_BUNDLE_LINK]" class="pcta pcta-g">
+          <span data-lang="en" class="active">👉 Get Bundle — $14.99 USD/mo</span>
+          <span data-lang="zh">👉 訂閱套餐 — 14.99 美元/月</span>
+        </a>
+        <div class="psave"><span data-lang="en" class="active">$9.99 + $9.99 = $19.98 separately · Bundle saves <strong>$4.98 USD/mo</strong></span><span data-lang="zh">$9.99 + $9.99 = $19.98 分開購買 · 套餐節省 <strong>4.98 美元/月</strong></span></div>
+      </div>
+
+      <div class="pcard">
+        <div class="pbadge pby">🇺🇸 US Market</div>
+        <div class="pname"><span data-lang="en" class="active">US ETF Rotation</span><span data-lang="zh">美股 ETF 輪動</span></div>
+        <div class="ptag"><span data-lang="en" class="active">US market ETF research, weekly</span><span data-lang="zh">美股 ETF 研究，每週更新</span></div>
+        <div class="pnum"><sup>$</sup>9<span style="font-size:22px;font-family:var(--fm);font-weight:400;">.99</span></div>
+        <div class="pper"><span data-lang="en" class="active">USD / month · Cancel anytime</span><span data-lang="zh">美元 / 月 · 隨時取消</span></div>
+        <ul class="pfeats">
+          <li><span class="cky">✓</span><span data-lang="en" class="active">Full weekly US ETF model rankings</span><span data-lang="zh">每週完整美股 ETF 模型排名</span></li>
+          <li><span class="cky">✓</span><span data-lang="en" class="active">All momentum status labels</span><span data-lang="zh">全部動量狀態標籤</span></li>
+          <li><span class="cky">✓</span><span data-lang="en" class="active">US market risk score breakdown (0–100)</span><span data-lang="zh">美股風險評分分解（0–100）</span></li>
+          <li><span class="cky">✓</span><span data-lang="en" class="active">TradingView paper portfolio</span><span data-lang="zh">TradingView 模擬實盤追蹤</span></li>
+          <li><span class="cky">✓</span><span data-lang="en" class="active">Weekly research commentary</span><span data-lang="zh">每週研究評論</span></li>
+          <li><span class="cky">✓</span><span data-lang="en" class="active">Historical signal archive</span><span data-lang="zh">歷史信號存檔</span></li>
+        </ul>
+        <a href="[LEMONSQUEEZY_US_LINK]" class="pcta pcta-o">
+          <span data-lang="en" class="active">Subscribe — $9.99 USD/mo</span>
+          <span data-lang="zh">訂閱 — 9.99 美元/月</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- WHAT'S INCLUDED -->
+    <div style="margin-top:52px;">
+      <div class="s-label"><span data-lang="en" class="active">What's Included</span><span data-lang="zh">包含內容</span></div>
+      <h2 class="s-title"><span data-lang="en" class="active">Two signals free. Full research for subscribers.</span><span data-lang="zh">兩個信號免費，完整研究給訂閱者</span></h2>
+      <table class="cmp-tbl">
+        <thead><tr>
+          <th><span data-lang="en" class="active">Content</span><span data-lang="zh">內容</span></th>
+          <th><span data-lang="en" class="active">Public</span><span data-lang="zh">公開</span></th>
+          <th style="color:var(--green);"><span data-lang="en" class="active">Subscriber</span><span data-lang="zh">訂閱者</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><td><span data-lang="en" class="active">Top 2 ETF momentum status (preview)</span><span data-lang="zh">前 2 只 ETF 動量狀態（預覽）</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td><span data-lang="en" class="active">Complete ETF rankings (all tickers)</span><span data-lang="zh">完整 ETF 排名（所有代碼）</span></td><td><span class="no-">—</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td><span data-lang="en" class="active">Weekly risk score breakdown (0–100)</span><span data-lang="zh">每週風險評分分解（0–100）</span></td><td><span class="no-">—</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td><span data-lang="en" class="active">Allocation framework reference</span><span data-lang="zh">配置框架參考</span></td><td><span class="no-">—</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td><span data-lang="en" class="active">Paper trading performance logs</span><span data-lang="zh">模擬實盤業績記錄</span></td><td><span class="no-">—</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td><span data-lang="en" class="active">Full weekly research commentary</span><span data-lang="zh">每週完整研究評論</span></td><td><span class="no-">—</span></td><td><span class="yes">✓</span></td></tr>
+          <tr><td><span data-lang="en" class="active">Historical signal archive (all weeks)</span><span data-lang="zh">歷史信號完整存檔（所有週次）</span></td><td><span class="no-">—</span></td><td><span class="yes">✓</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FAQ -->
+    <div style="margin-top:52px;">
+      <div class="s-label">FAQ</div>
+      <h2 class="s-title"><span data-lang="en" class="active">Frequently asked questions.</span><span data-lang="zh">常見問題</span></h2>
+      <div class="faq-item"><div class="faq-q"><span data-lang="en" class="active">What exactly is this service?</span><span data-lang="zh">這個服務究竟是什麼？</span></div><div class="faq-a"><span data-lang="en" class="active">Alpha Rotation Lab publishes systematic, rules-based ETF rotation model outputs weekly. All subscribers receive identical published content — not personalised investment advice.</span><span data-lang="zh">阿爾法輪動實驗室發佈的模型輸出是一個規則驅動的 ETF 輪動研究出版物，每週發佈系統化模型輸出。所有訂閱者每週收到相同的已發佈內容——非個性化投資建議。</span></div></div>
+      <div class="faq-item"><div class="faq-q"><span data-lang="en" class="active">Does this constitute investment advice?</span><span data-lang="zh">這構成投資建議嗎？</span></div><div class="faq-a"><span data-lang="en" class="active">No. Nothing herein constitutes investment advice, financial advice, or a recommendation to buy or sell any security. Alpha Rotation Lab is not a registered investment adviser. You are solely responsible for your own investment decisions.</span><span data-lang="zh">不構成。本出版物任何內容均不構成投資建議、財務建議或任何買賣證券的推薦。阿爾法輪動實驗室不是註冊投資顧問。您需自行承擔投資決策責任。</span></div></div>
+      <div class="faq-item"><div class="faq-q"><span data-lang="en" class="active">How do I access research after subscribing?</span><span data-lang="zh">訂閱後如何訪問研究內容？</span></div><div class="faq-a"><span data-lang="en" class="active">After payment via LemonSqueezy, you'll receive a welcome email with a Notion invite link. You'll be added as a viewer to the private subscriber research page within 24 hours of confirmed payment.</span><span data-lang="zh">通過 LemonSqueezy 完成付款後，您將收到包含 Notion 邀請鏈接的歡迎郵件，確認付款後 24 小時內獲得訪問權限。</span></div></div>
+      <div class="faq-item"><div class="faq-q"><span data-lang="en" class="active">Can I cancel anytime?</span><span data-lang="zh">可以隨時取消嗎？</span></div><div class="faq-a"><span data-lang="en" class="active">Yes. Cancel anytime with one click via LemonSqueezy. No lock-in, no cancellation fees.</span><span data-lang="zh">是的。通過 LemonSqueezy 一鍵隨時取消，無鎖定期，無取消費用。</span></div></div>
+      <div class="faq-item"><div class="faq-q"><span data-lang="en" class="active">Which plan should I choose?</span><span data-lang="zh">應該選哪個方案？</span></div><div class="faq-a"><span data-lang="en" class="active">Single-market plan at $9.99 USD/month for one market. The Bundle at $14.99 USD/month covers both US and A-share — saving $4.98/month vs buying separately.</span><span data-lang="zh">單一市場選 9.99 美元/月方案。雙市場選 14.99 美元套餐，比分開購買節省 4.98 美元/月。</span></div></div>
+    </div>
+
+    <!-- DISCLAIMER -->
+    <div style="margin-top:48px;">
+      <div class="s-label"><span data-lang="en" class="active">Disclaimer</span><span data-lang="zh">免責聲明</span></div>
+      <div class="disc">
+        <span data-lang="en" class="active"><strong>Research Publication Only:</strong> Nothing herein constitutes investment advice, financial advice, legal advice, tax advice, or any recommendation to buy or sell securities. Alpha Rotation Lab is not a registered investment adviser in any jurisdiction.<br><br><strong>Performance Warning:</strong> Past performance, backtests, and paper-trading results do not guarantee future outcomes. Backtest results include 0.15% transaction cost per trade but exclude taxes, additional slippage, and market impact. Actual results will vary significantly.<br><br><strong>Disclosure:</strong> Author may hold positions in securities discussed. All model outputs are published uniformly to all subscribers.</span>
+        <span data-lang="zh"><strong>研究出版物聲明：</strong>阿爾法輪動實驗室發佈的模型輸出是一個規則驅動的 ETF 輪動研究出版物，其任何內容均不構成投資建議、財務建議、法律建議、稅務建議或任何買賣證券的推薦。本出版物任何內容均不構成投資建議、財務建議、法律建議、稅務建議或任何買賣證券的推薦。阿爾法輪動實驗室在任何司法管轄區均非註冊投資顧問。<br><br><strong>業績警告：</strong>歷史業績、回測及模擬盤業績不保證未來收益。回測含每筆 0.15% 交易成本，但不包括稅費、額外滑點及市場衝擊成本。實際結果將有顯著差異。<br><br><strong>利益披露：</strong>作者可能持有所提及證券的倉位。所有模型輸出均統一向所有訂閱者發佈。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div class="foot-inner">
+    <div class="foot-logo"><svg width="30" height="30" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="#00D68F" stroke-width="2" fill="#020811"/><path d="M40 10C60 10 70 22 70 40S60 70 40 70" stroke="#00D68F" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M40 10C20 10 10 22 10 40S20 70 40 70" stroke="#4A9EFF" stroke-width="2.5" stroke-linecap="round" fill="none" stroke-dasharray="4 5"/><text x="40" y="49" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="bold" fill="#00D68F">α</text></svg>
+      <div><span class="foot-en">Alpha Rotation Lab</span><span class="foot-zh">阿爾法輪動實驗室</span></div>
+    </div>
+    <div class="foot-links"><a href="index.html" class="foot-link"><span data-lang="en" class="active">Home</span><span data-lang="zh">首頁</span></a><a href="research.html" class="foot-link"><span data-lang="en" class="active">Research</span><span data-lang="zh">研究</span></a><a href="sample.html" class="foot-link"><span data-lang="en" class="active">Publication</span><span data-lang="zh">發佈</span></a><a href="subscribe.html" class="foot-link"><span data-lang="en" class="active">Subscribe</span><span data-lang="zh">訂閱</span></a><a href="mailto:AlphaRotationLab@outlook.com" class="foot-link">AlphaRotationLab@outlook.com</a></div>
+  </div>
+  <div class="foot-copy">© <span id="copy-year">2026</span> Alpha Rotation Lab &nbsp;·&nbsp;
+    <span data-lang="en" class="active">Systematic Research · Not investment advice</span>
+    <span data-lang="zh">系統化研究 · 不構成投資建議</span>
+  </div>
+</div></footer>
+<script>
+function setLang(l){localStorage.setItem('arl_lang',l);document.querySelectorAll('[data-lang]').forEach(e=>e.classList.toggle('active',e.dataset.lang===l));document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',(l==='en'&&b.textContent.trim()==='EN')||(l==='zh'&&b.textContent.trim()==='中文')));document.documentElement.lang=l==='en'?'en':'zh-TW';}
+(function(){const s=localStorage.getItem('arl_lang'),b=(navigator.language||'en').toLowerCase();if((s||b).startsWith('zh'))setLang('zh');})();
+
+function toggleMobileNav() {
+  var nav = document.getElementById('mobile-nav');
+  var ham = document.getElementById('ham');
+  var open = nav.classList.toggle('open');
+  ham.classList.toggle('open', open);
+  ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+var cy=document.getElementById('copy-year');if(cy)cy.textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
