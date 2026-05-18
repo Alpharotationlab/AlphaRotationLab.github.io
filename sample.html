@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publication — Alpha Rotation Lab</title>
+<meta name="description" content="Weekly published model output from Alpha Rotation Lab. Research delivery details, ETF signals, risk scores and a simplified weekly report sample.">
+<meta property="og:title" content="Publication — Alpha Rotation Lab">
+<meta property="og:description" content="Weekly ETF rotation research. Free preview + simplified report sample.">
+<link rel="alternate" hreflang="en" href="?lang=en">
+<link rel="alternate" hreflang="zh-TW" href="?lang=zh">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050C1A;--card:#0F1E35;--card-h:#142440;
+  --green:#00D68F;--gdim:#00D68F18;
+  --gold:#F5A623;--ydim:#F5A62318;
+  --blue:#4A9EFF;--bdim:#4A9EFF12;
+  --red:#FF5A5A;
+  --t1:#EEF2FF;--t2:#8B9EC7;--t3:#4A5F84;
+  --b1:rgba(74,158,255,.12);--b2:rgba(74,158,255,.26);
+  --fd:'Syne',system-ui,-apple-system,sans-serif;
+  --fb:'Outfit',system-ui,-apple-system,'PingFang SC','PingFang TC','Microsoft YaHei',sans-serif;
+  --fm:'JetBrains Mono','Courier New',Consolas,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:16px;line-height:1.7;overflow-x:hidden;}
+.grid-bg{position:fixed;inset:0;background-image:linear-gradient(rgba(74,158,255,.022)1px,transparent 1px),linear-gradient(90deg,rgba(74,158,255,.022)1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0;}
+nav{position:sticky;top:0;z-index:100;background:rgba(5,12,26,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--b1);}
+.nav-inner{max-width:1060px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px;}
+.nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0;}
+.logo-text-col{display:flex;flex-direction:column;}
+.logo-en{font-family:var(--fd);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--t1);line-height:1.2;display:block;}
+.logo-zh{font-size:10.5px;color:var(--t3);letter-spacing:.06em;display:block;margin-top:1px;}
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-link{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:.06em;padding:7px 12px;border-radius:6px;text-decoration:none;color:var(--t3);transition:all .18s;white-space:nowrap;}
+.nav-link:hover{color:var(--t2);background:rgba(74,158,255,.06);}
+.nav-link.active-page{color:var(--blue);background:var(--bdim);}
+.nav-right{display:flex;align-items:center;gap:8px;}
+.lang-toggle{display:flex;background:var(--card);border:1px solid var(--b1);border-radius:7px;overflow:hidden;}
+.lang-btn{font-family:var(--fm);font-size:10.5px;font-weight:700;padding:5px 10px;letter-spacing:.06em;border:none;cursor:pointer;background:transparent;color:var(--t3);transition:all .18s;}
+.lang-btn.active{background:var(--bdim);color:var(--blue);}
+.nav-cta{background:var(--green);color:#050C1A;font-family:var(--fd);font-size:11.5px;font-weight:800;padding:8px 17px;border-radius:6px;text-decoration:none;letter-spacing:.04em;white-space:nowrap;transition:opacity .2s;}
+.nav-cta:hover{opacity:.85;}
+@media(max-width:760px){.nav-links{display:none;}.logo-zh{display:none;}}
+.wrap{max-width:1060px;margin:0 auto;padding:0 28px;position:relative;z-index:1;}
+section{padding:68px 0;}
+section+section{border-top:1px solid var(--b1);}
+.s-label{font-family:var(--fm);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
+.s-title{font-family:var(--fd);font-size:clamp(22px,3.8vw,32px);font-weight:800;line-height:1.18;margin-bottom:12px;}
+.s-sub{font-size:15px;color:var(--t2);max-width:600px;margin-bottom:36px;line-height:1.7;}
+[data-lang]{display:none;}[data-lang].active{display:block;}span[data-lang].active{display:inline;}
+.btn-g{display:inline-flex;align-items:center;gap:7px;background:var(--green);color:#050C1A;font-family:var(--fd);font-size:14px;font-weight:800;padding:13px 28px;border-radius:8px;text-decoration:none;transition:all .2s;}
+.btn-g:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,214,143,.3);}
+.btn-o{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--b2);color:var(--t2);font-family:var(--fd);font-size:13.5px;font-weight:600;padding:12px 22px;border-radius:8px;text-decoration:none;transition:all .2s;}
+.btn-o:hover{border-color:var(--blue);color:var(--blue);}
+.btn-ghost{display:inline-flex;align-items:center;gap:6px;font-family:var(--fm);font-size:11.5px;color:var(--blue);text-decoration:none;letter-spacing:.05em;transition:color .18s;}
+.btn-ghost:hover{color:var(--t1);}
+footer{padding:44px 0 24px;border-top:1px solid var(--b1);}
+.foot-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.foot-logo{display:flex;align-items:center;gap:10px;}
+.foot-en{font-family:var(--fd);font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--t1);display:block;}
+.foot-zh{font-size:10.5px;color:var(--t3);display:block;margin-top:1px;}
+.foot-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+.foot-link{font-family:var(--fm);font-size:11px;color:var(--t3);text-decoration:none;letter-spacing:.04em;transition:color .18s;}
+.foot-link:hover{color:var(--t2);}
+.foot-copy{font-size:10.5px;color:var(--t3);font-family:var(--fm);margin-top:14px;padding-top:14px;border-top:1px solid var(--b1);text-align:center;letter-spacing:.03em;}
+.pulse{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;display:inline-block;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
+@media(max-width:640px){section{padding:48px 0;}.wrap{padding:0 18px;}}
+
+/* Research Delivery Module */
+.delivery-card{background:linear-gradient(135deg,rgba(74,158,255,.06),rgba(0,214,143,.04));border:1px solid var(--b1);border-radius:14px;padding:28px 32px;margin-bottom:0;}
+.delivery-title{font-family:var(--fd);font-size:18px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.delivery-body{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+@media(max-width:640px){.delivery-body{grid-template-columns:1fr;}}
+.delivery-col p{font-size:14px;color:var(--t2);line-height:1.75;margin-bottom:10px;}
+.delivery-col p:last-child{margin-bottom:0;}
+.delivery-items h4{font-family:var(--fm);font-size:10.5px;color:var(--blue);letter-spacing:.09em;text-transform:uppercase;margin-bottom:10px;}
+.delivery-items ul{list-style:none;}
+.delivery-items li{display:flex;gap:8px;font-size:13.5px;color:var(--t2);padding:5px 0;}
+.delivery-items li::before{content:'→';color:var(--green);font-family:var(--fm);font-size:12px;flex-shrink:0;margin-top:2px;}
+.delivery-note{font-family:var(--fm);font-size:11px;color:var(--t3);border-top:1px solid var(--b1);margin-top:18px;padding-top:14px;letter-spacing:.04em;}
+.delivery-note strong{color:var(--gold);}
+
+.update-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(0,214,143,.06);border:1px solid rgba(0,214,143,.18);border-radius:7px;padding:7px 15px;font-family:var(--fm);font-size:11px;color:var(--green);letter-spacing:.05em;margin-bottom:20px;}
+/* Terminal */
+.term-wrap{background:#020811;border:1px solid rgba(0,214,143,.17);border-radius:12px;overflow:hidden;margin-bottom:20px;}
+.term-hd{display:flex;align-items:center;gap:6px;padding:11px 16px;border-bottom:1px solid rgba(0,214,143,.09);background:rgba(0,214,143,.03);}
+.tdot{width:9px;height:9px;border-radius:50%;}
+.tlabel{font-family:var(--fm);font-size:11px;color:var(--t3);margin-left:6px;}
+.term-body{padding:20px;}
+.term-ts{font-family:var(--fm);font-size:10px;color:var(--t3);margin-bottom:14px;letter-spacing:.06em;}
+.tsummary{display:flex;gap:18px;flex-wrap:wrap;padding:10px 13px;background:rgba(0,214,143,.04);border:1px solid rgba(0,214,143,.11);border-radius:8px;margin-bottom:14px;}
+.tsi{display:flex;flex-direction:column;gap:3px;}
+.tsi-l{font-family:var(--fm);font-size:10px;color:var(--t3);letter-spacing:.07em;text-transform:uppercase;}
+.tsi-v{font-family:var(--fm);font-size:13px;font-weight:700;}
+.bull{color:var(--green);}.warn{color:var(--gold);}.neu{color:var(--blue);}
+.sig-row{display:flex;align-items:center;justify-content:space-between;padding:10px 13px;border-radius:7px;margin-bottom:6px;background:rgba(255,255,255,.023);border:1px solid var(--b1);}
+.sig-row.top{background:rgba(0,214,143,.06);border-color:rgba(0,214,143,.18);}
+.sig-row.locked{opacity:.32;filter:blur(4px);user-select:none;pointer-events:none;}
+.setf{font-family:var(--fm);font-size:14px;font-weight:700;}
+.sname{font-size:11px;color:var(--t3);margin-top:1px;}
+.stag{font-family:var(--fm);font-size:11px;font-weight:700;padding:3px 9px;border-radius:5px;}
+.tag-pos{background:rgba(0,214,143,.11);color:var(--green);border:1px solid rgba(0,214,143,.26);}
+.tag-imp{background:rgba(74,158,255,.1);color:var(--blue);border:1px solid rgba(74,158,255,.22);}
+.tag-lk{background:rgba(74,95,132,.09);color:var(--t3);border:1px solid var(--b1);}
+.lock-fade{text-align:center;padding:14px;background:linear-gradient(to bottom,transparent,rgba(2,8,17,.96)65%);margin-top:-38px;position:relative;}
+.lock-fade p{font-family:var(--fd);font-size:13px;font-weight:700;color:var(--t2);margin-bottom:3px;}
+.lock-fade small{font-size:12px;color:var(--t3);}
+.term-tabs{display:flex;margin-bottom:20px;background:var(--card);border:1px solid var(--b1);border-radius:8px;padding:3px;width:fit-content;}
+.term-tab{font-family:var(--fm);font-size:11px;font-weight:700;padding:6px 14px;border-radius:6px;cursor:pointer;border:none;background:transparent;color:var(--t3);transition:all .18s;}
+.term-tab.active{background:var(--gdim);color:var(--green);border:1px solid rgba(0,214,143,.22);}
+.prod-panel{display:none;}.prod-panel.active{display:block;}
+.rnotes{background:var(--card);border:1px solid var(--b1);border-radius:10px;padding:18px 20px;margin-top:14px;}
+.rnotes-label{font-family:var(--fm);font-size:10px;color:var(--t3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
+.rnotes p{font-size:13px;color:var(--t2);line-height:1.7;}
+.risk-row{background:var(--card);border:1px solid var(--b1);border-radius:12px;padding:20px 22px;display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:16px;}
+.risk-circle{width:82px;height:82px;border-radius:50%;border:3px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;background:var(--ydim);}
+.risk-n{font-family:var(--fm);font-size:25px;font-weight:700;color:#fff;line-height:1;}
+.risk-d{font-family:var(--fm);font-size:11px;color:var(--t3);}
+.risk-info h3{font-family:var(--fd);font-size:15px;font-weight:700;margin-bottom:4px;}
+.risk-info p{font-size:13px;color:var(--t2);margin-bottom:8px;}
+.rscale{display:flex;gap:6px;}
+.rs{padding:3px 10px;border-radius:100px;font-family:var(--fm);font-size:11px;font-weight:700;border:1px solid;}
+.rs-lo{background:rgba(0,214,143,.08);color:var(--green);border-color:rgba(0,214,143,.22);}
+.rs-me{background:rgba(245,166,35,.11);color:var(--gold);border-color:rgba(245,166,35,.26);}
+.rs-hi{background:rgba(255,90,90,.08);color:var(--red);border-color:rgba(255,90,90,.18);}
+/* Feature pills */
+.feat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:24px;}
+.feat-pill{background:var(--card);border:1px solid var(--b1);border-radius:9px;padding:14px 16px;display:flex;align-items:flex-start;gap:10px;}
+.fp-icon{font-size:18px;flex-shrink:0;}
+.fp-text{font-size:12.5px;color:var(--t2);line-height:1.6;}
+.fp-text strong{color:var(--t1);display:block;margin-bottom:2px;}
+/* Simplified weekly report */
+.report-wrap{background:#020811;border:1px solid rgba(0,214,143,.17);border-radius:14px;overflow:hidden;}
+.report-header{background:linear-gradient(135deg,rgba(0,214,143,.08),rgba(74,158,255,.06));padding:20px 24px;border-bottom:1px solid rgba(0,214,143,.14);}
+.report-header h3{font-family:var(--fd);font-size:16px;font-weight:800;margin-bottom:4px;}
+.rh-meta{font-family:var(--fm);font-size:11px;color:var(--t3);letter-spacing:.06em;}
+.report-section{padding:18px 24px;border-bottom:1px solid rgba(74,158,255,.07);}
+.report-section:last-child{border-bottom:none;}
+.rs-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.rs-title{font-family:var(--fm);font-size:10.5px;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;}
+.rs-badge{font-family:var(--fm);font-size:9.5px;padding:2px 8px;border-radius:4px;font-weight:700;letter-spacing:.06em;}
+.badge-public{color:var(--green);background:var(--gdim);border:1px solid rgba(0,214,143,.22);}
+.badge-partial{color:var(--gold);background:var(--ydim);border:1px solid rgba(245,166,35,.22);}
+.badge-locked{color:var(--t3);background:rgba(74,95,132,.1);border:1px solid var(--b1);}
+.regime-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.regime-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(0,214,143,.08);border:1px solid rgba(0,214,143,.22);border-radius:8px;padding:10px 16px;}
+.rp-label{font-family:var(--fm);font-size:10px;color:var(--t3);letter-spacing:.08em;text-transform:uppercase;}
+.rp-val{font-family:var(--fd);font-size:14px;font-weight:800;color:var(--green);}
+.risk-bar-wrap{flex:1;min-width:180px;}
+.risk-bar-label{display:flex;justify-content:space-between;font-family:var(--fm);font-size:10px;color:var(--t3);margin-bottom:5px;}
+.risk-bar{height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden;}
+.risk-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--green),var(--gold));}
+.report-sig{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border-radius:7px;margin-bottom:5px;}
+.report-sig.pub{background:rgba(0,214,143,.06);border:1px solid rgba(0,214,143,.16);}
+.report-sig.pub2{background:rgba(74,158,255,.05);border:1px solid rgba(74,158,255,.14);}
+.report-sig.lock{opacity:.3;filter:blur(3.5px);user-select:none;pointer-events:none;background:rgba(255,255,255,.02);border:1px solid var(--b1);}
+.sig-num{font-family:var(--fm);font-size:11px;color:var(--t3);min-width:22px;}
+.sig-ticker{font-family:var(--fm);font-size:14px;font-weight:700;min-width:52px;}
+.sig-name{font-size:12px;color:var(--t2);flex:1;}
+.redacted-block{background:rgba(255,255,255,.04);border-radius:5px;height:16px;display:inline-block;vertical-align:middle;}
+.risk-item{display:flex;align-items:flex-start;gap:10px;padding:6px 0;font-size:13px;color:var(--t2);}
+.ri-label{font-family:var(--fm);font-size:10.5px;color:var(--t3);min-width:160px;flex-shrink:0;}
+.ri-val{font-weight:600;color:var(--t1);}
+.ri-redact{font-family:var(--fm);font-size:10px;color:var(--t3);background:rgba(255,255,255,.04);padding:1px 8px;border-radius:4px;}
+.commentary-fade{position:relative;overflow:hidden;max-height:52px;}
+.commentary-fade::after{content:'';position:absolute;bottom:0;left:0;right:0;height:36px;background:linear-gradient(to bottom,transparent,#020811);}
+.locked-section{text-align:center;padding:16px;}
+.lock-line{height:10px;background:rgba(255,255,255,.06);border-radius:4px;margin-bottom:8px;}
+.locked-label{font-family:var(--fm);font-size:11px;color:var(--t3);letter-spacing:.07em;}
+/* Sched */
+.sched-row{display:flex;gap:20px;padding:15px 0;border-bottom:1px solid var(--b1);}
+.sched-row:last-child{border-bottom:none;}
+.sday{font-family:var(--fm);font-size:11px;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;min-width:78px;flex-shrink:0;padding-top:3px;}
+.stime{font-family:var(--fm);font-size:15px;font-weight:700;line-height:1;}
+.slbl{font-size:13px;color:var(--t2);margin-top:4px;}
+.disc{background:rgba(10,22,40,.7);border:1px solid var(--b1);border-radius:12px;padding:22px;font-family:var(--fm);font-size:11px;color:var(--t3);line-height:1.9;}
+.disc strong{color:var(--gold);}
+
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:8px 6px;border:none;background:transparent;width:36px;height:36px;}
+.hamburger span{display:block;width:20px;height:2px;background:var(--t2);border-radius:2px;transition:all .2s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-nav{display:none;position:fixed;top:62px;left:0;right:0;background:rgba(5,12,26,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--b1);padding:16px 28px 20px;z-index:99;}
+.mobile-nav.open{display:block;}
+.mobile-nav a{display:flex;justify-content:space-between;align-items:center;padding:13px 0;font-family:var(--fm);font-size:13px;font-weight:700;color:var(--t2);text-decoration:none;border-bottom:1px solid var(--b1);}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav a span{font-size:11px;color:var(--t3);}
+@media(max-width:760px){.nav-links{display:none;}.hamburger{display:flex;}.logo-zh{display:none;}}
+[id]{scroll-margin-top:80px;}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<nav><div class="nav-inner">
+  <a href="index.html" class="nav-logo"><svg width="36" height="36" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="#00D68F" stroke-width="2" fill="#020811"/><circle cx="40" cy="40" r="27" stroke="rgba(74,158,255,0.16)" stroke-width="1" fill="none"/><path d="M40 10C60 10 70 22 70 40S60 70 40 70" stroke="#00D68F" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M40 10C20 10 10 22 10 40S20 70 40 70" stroke="#4A9EFF" stroke-width="2.5" stroke-linecap="round" fill="none" stroke-dasharray="4 5"/><path d="M67 36.5L71 41L75 36.5" stroke="#00D68F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><text x="40" y="49" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="bold" fill="#00D68F">α</text></svg>
+    <div class="logo-text-col"><span class="logo-en">Alpha Rotation Lab</span><span class="logo-zh">阿爾法輪動實驗室</span></div>
+  </a>
+  <div class="nav-links"><a href="index.html" class="nav-link"><span data-lang="en" class="active">Home</span><span data-lang="zh">首頁</span></a><a href="research.html" class="nav-link"><span data-lang="en" class="active">Research</span><span data-lang="zh">研究</span></a><a href="sample.html" class="nav-link active-page"><span data-lang="en" class="active">Publication</span><span data-lang="zh">發佈</span></a><a href="subscribe.html" class="nav-link"><span data-lang="en" class="active">Subscribe</span><span data-lang="zh">訂閱</span></a></div>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+    </div>
+    <a href="subscribe.html" class="nav-cta">
+      <span data-lang="en" class="active">Subscribe</span>
+      <span data-lang="zh">立即訂閱</span>
+    </a>
+  </div>
+</div></nav>
+
+<!-- RESEARCH DELIVERY MODULE -->
+<section style="padding:60px 0 0;">
+  <div class="wrap">
+    <div class="delivery-card">
+      <div class="delivery-title">
+        📬
+        <div>
+          <div style="font-family:var(--fd);font-size:18px;font-weight:800;">
+            <span data-lang="en" class="active">Research Delivery</span>
+            <span data-lang="zh">研究交付方式</span>
+          </div>
+          <div style="font-family:var(--fm);font-size:11px;color:var(--t3);letter-spacing:.07em;margin-top:2px;">
+            <span data-lang="en" class="active">How subscribers receive weekly model outputs</span>
+            <span data-lang="zh">訂閱用戶如何獲取每週模型輸出</span>
+          </div>
+        </div>
+      </div>
+      <div class="delivery-body">
+        <div class="delivery-col">
+          <p>
+            <span data-lang="en" class="active">Subscribers receive weekly model outputs and research updates through a <strong style="color:var(--t1);">private Notion-based research portal</strong>. New model outputs are typically published every <strong style="color:var(--t1);">Tuesday at 9:00 AM ET</strong>.</span>
+            <span data-lang="zh">訂閱用戶將通過<strong style="color:var(--t1);">私有 Notion 研究平台</strong>獲取每週模型輸出與研究更新。最新模型輸出通常於每週二<strong style="color:var(--t1);">美東時間上午 9:00</strong> 發佈。</span>
+          </p>
+          <p>
+            <span data-lang="en" class="active">Access is <strong style="color:var(--t1);">invitation-only</strong> and provided after subscription approval.</span>
+            <span data-lang="zh">平台採用<strong style="color:var(--t1);">邀請制訪問</strong>，訂閱審核通過後提供訪問權限。</span>
+          </p>
+        </div>
+        <div class="delivery-items">
+          <h4><span data-lang="en" class="active">Updates may include</span><span data-lang="zh">更新內容可能包括</span></h4>
+          <ul>
+            <li><span data-lang="en" class="active">Portfolio adjustments</span><span data-lang="zh">組合調整</span></li>
+            <li><span data-lang="en" class="active">Signal changes</span><span data-lang="zh">信號變化</span></li>
+            <li><span data-lang="en" class="active">Market observations</span><span data-lang="zh">市場觀察</span></li>
+            <li><span data-lang="en" class="active">Research notes</span><span data-lang="zh">研究備注</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="delivery-note">
+        <span data-lang="en" class="active">📋 <strong>Platform:</strong> Notion (private, invitation-only) &nbsp;·&nbsp; <strong>Frequency:</strong> Weekly (every Tuesday) + market alerts as needed &nbsp;·&nbsp; <strong>Access:</strong> Email invite after payment confirmation</span>
+        <span data-lang="zh">📋 <strong>平台：</strong>Notion（私有，邀請制）&nbsp;·&nbsp; <strong>頻率：</strong>每週（每週二）+ 市場預警不定期 &nbsp;·&nbsp; <strong>訪問方式：</strong>付款確認後發送郵件邀請</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WEEK PREVIEW -->
+<section>
+  <div class="wrap">
+    <div class="s-label"><span data-lang="en" class="active">Weekly Publication Preview</span><span data-lang="zh">本週發佈預覽</span></div>
+    <h1 class="s-title">
+      <span data-lang="en" class="active">This week's model output.<br>Two signals free.</span>
+      <span data-lang="zh">本週模型輸出<br>兩個信號免費公開</span>
+    </h1>
+    <p class="s-sub">
+      <span data-lang="en" class="active">Top 2 signals published free every week. Subscribe for complete rankings, full risk score breakdown, and research commentary.</span>
+      <span data-lang="zh">每週前 2 個信號免費公開。訂閱後即可獲得完整排名、完整風險評分分解與研究評論。</span>
+    </p>
+    <div class="update-badge">📅 <span data-lang="en" class="active">Last Research Update: May 13, 2026 (Week 20)</span><span data-lang="zh">最新研究更新：2026 年 5 月 13 日（第 20 週）</span></div>
+
+    <div class="term-tabs">
+      <button class="term-tab active" onclick="switchMkt('us',this)">🇺🇸 US ETF</button>
+      <button class="term-tab" onclick="switchMkt('cn',this)">🇨🇳 A-Share ETF</button>
+    </div>
+
+    <div id="panel-us" class="prod-panel active">
+      <div class="term-wrap">
+        <div class="term-hd"><div class="tdot" style="background:#FF5F57"></div><div class="tdot" style="background:#FEBC2E"></div><div class="tdot" style="background:#28C840"></div><span class="tlabel">ARL · US ETF Rotation · Model Output · Week 20 · 2026</span></div>
+        <div class="term-body">
+          <div class="term-ts">Published: Tuesday, May 13, 2026 · After US Market Close · T+1</div>
+          <div class="tsummary">
+            <div class="tsi"><span class="tsi-l">Market Regime</span><span class="tsi-v bull">Constructive</span></div>
+            <div class="tsi"><span class="tsi-l">Risk Score</span><span class="tsi-v warn">42 / 100</span></div>
+            <div class="tsi"><span class="tsi-l">Top Sector</span><span class="tsi-v neu">Technology</span></div>
+            <div class="tsi"><span class="tsi-l">Bias</span><span class="tsi-v bull">Positive</span></div>
+          </div>
+          <div class="sig-row top"><div><div class="setf">QQQ</div><div class="sname">Invesco QQQ Trust — Nasdaq-100 · 🔓 Public</div></div><span class="stag tag-pos">Positive Momentum</span></div>
+          <div class="sig-row"><div><div class="setf">XLK</div><div class="sname">Technology Select Sector SPDR · 🔓 Public</div></div><span class="stag tag-imp">Improving Trend</span></div>
+          <div class="sig-row locked"><div><div class="setf" style="font-size:11px;color:var(--t3);">#3</div><div class="sname">Sector ETF · 🔒 Subscribers Only</div></div><span class="stag tag-lk">🔒</span></div>
+          <div class="sig-row locked"><div><div class="setf" style="font-size:11px;color:var(--t3);">#4</div><div class="sname">Sector ETF · 🔒 Subscribers Only</div></div><span class="stag tag-lk">🔒</span></div>
+          <div class="sig-row locked"><div><div class="setf" style="font-size:11px;color:var(--t3);">#5</div><div class="sname">Sector ETF · 🔒 Subscribers Only</div></div><span class="stag tag-lk">🔒</span></div>
+          <div class="lock-fade"><p>🔒 Full rankings + risk score + research notes — Subscribers only</p><small><a href="subscribe.html" style="color:var(--green);text-decoration:none;">Subscribe from $9.99 USD/mo →</a></small></div>
+        </div>
+      </div>
+      <div class="rnotes"><div class="rnotes-label">Research Notes — Public Excerpt</div><p><span data-lang="en" class="active">Market strength remains concentrated in technology-related sectors. Broader participation is mixed. Trend conditions remain constructive but volatility should be monitored. Risk score at 42 reflects a moderate environment.</span><span data-lang="zh">市場強勢持續集中於科技相關板塊，廣泛市場參與度仍然參差。趨勢條件維持建設性，但波動率仍需持續監測。模型風險評分 42 反映溫和環境。</span></p></div>
+      <div class="risk-row">
+        <div class="risk-circle"><span class="risk-n">42</span><span class="risk-d">/100</span></div>
+        <div class="risk-info"><h3><span data-lang="en" class="active">US Market Risk Level</span><span data-lang="zh">美股市場風險水平</span></h3><p><span data-lang="en" class="active">🟡 Moderate — Constructive but requires monitoring. Updated weekly.</span><span data-lang="zh">🟡 溫和 — 具建設性但需持續監測。每週更新。</span></p><div class="rscale"><span class="rs rs-lo">Low</span><span class="rs rs-me">Moderate ◀</span><span class="rs rs-hi">Elevated</span></div></div>
+      </div>
+    </div>
+
+    <div id="panel-cn" class="prod-panel">
+      <div class="term-wrap">
+        <div class="term-hd"><div class="tdot" style="background:#FF5F57"></div><div class="tdot" style="background:#FEBC2E"></div><div class="tdot" style="background:#28C840"></div><span class="tlabel">ARL · A 股 ETF 輪動 · 模型輸出 · 第 20 週 · 2026</span></div>
+        <div class="term-body">
+          <div class="term-ts">發佈時間：週二，2026年5月13日 · 收盤後分析 · T+1</div>
+          <div class="tsummary">
+            <div class="tsi"><span class="tsi-l"><span data-lang="en" class="active">Regime</span><span data-lang="zh">市場狀態</span></span><span class="tsi-v bull">建設性</span></div>
+            <div class="tsi"><span class="tsi-l"><span data-lang="en" class="active">Risk</span><span data-lang="zh">風險評分</span></span><span class="tsi-v warn">38 / 100</span></div>
+            <div class="tsi"><span class="tsi-l"><span data-lang="en" class="active">Top</span><span data-lang="zh">領先板塊</span></span><span class="tsi-v neu"><span data-lang="en" class="active">Technology</span><span data-lang="zh">科技</span></span></div>
+            <div class="tsi"><span class="tsi-l"><span data-lang="en" class="active">Bias</span><span data-lang="zh">信號偏向</span></span><span class="tsi-v bull"><span data-lang="en" class="active">Positive</span><span data-lang="zh">正向</span></span></div>
+          </div>
+          <div class="sig-row top"><div><div class="setf">510300</div><div class="sname">華泰柏瑞滬深300ETF · 🔓 <span data-lang="en" class="active">Public</span><span data-lang="zh">免費</span></div></div><span class="stag tag-pos"><span data-lang="en" class="active">Positive Momentum</span><span data-lang="zh">正向動量</span></span></div>
+          <div class="sig-row"><div><div class="setf">159995</div><div class="sname">華夏芯片ETF · 🔓 <span data-lang="en" class="active">Public</span><span data-lang="zh">免費</span></div></div><span class="stag tag-imp"><span data-lang="en" class="active">Improving Trend</span><span data-lang="zh">趨勢改善</span></span></div>
+          <div class="sig-row locked"><div><div class="setf" style="font-size:11px;color:var(--t3);">#3</div><div class="sname"><span data-lang="en" class="active">🔒 Subscribers Only</span><span data-lang="zh">🔒 訂閱者專屬</span></div></div><span class="stag tag-lk">🔒</span></div>
+          <div class="sig-row locked"><div><div class="setf" style="font-size:11px;color:var(--t3);">#4</div><div class="sname"><span data-lang="en" class="active">🔒 Subscribers Only</span><span data-lang="zh">🔒 訂閱者專屬</span></div></div><span class="stag tag-lk">🔒</span></div>
+          <div class="sig-row locked"><div><div class="setf" style="font-size:11px;color:var(--t3);">#5</div><div class="sname"><span data-lang="en" class="active">🔒 Subscribers Only</span><span data-lang="zh">🔒 訂閱者專屬</span></div></div><span class="stag tag-lk">🔒</span></div>
+          <div class="lock-fade"><p>🔒 <span data-lang="en" class="active">Full rankings → Subscribers only</span><span data-lang="zh">完整排名 → 僅限訂閱者</span></p><small><a href="subscribe.html" style="color:var(--green);text-decoration:none;"><span data-lang="en" class="active">Subscribe →</span><span data-lang="zh">立即訂閱 →</span></a></small></div>
+        </div>
+      </div>
+      <div class="rnotes"><div class="rnotes-label"><span data-lang="en" class="active">Research Notes — Public Excerpt</span><span data-lang="zh">研究備注 — 公開節選</span></div><p><span data-lang="en" class="active">A-share sector momentum concentrated in technology and semiconductors. Broader market participation improving marginally. Risk score at 38 reflects a moderate environment.</span><span data-lang="zh">A 股板塊動量集中於科技與半導體。廣泛市場參與度略有改善。風險評分 38 處溫和水平。</span></p></div>
+      <div class="risk-row">
+        <div class="risk-circle"><span class="risk-n">38</span><span class="risk-d">/100</span></div>
+        <div class="risk-info"><h3><span data-lang="en" class="active">A-Share Risk Level</span><span data-lang="zh">A 股市場風險水平</span></h3><p><span data-lang="en" class="active">🟡 Moderate. Updated weekly after A-share close.</span><span data-lang="zh">🟡 溫和。每週 A 股收盤後更新。</span></p><div class="rscale"><span class="rs rs-lo">Low</span><span class="rs rs-me">Moderate ◀</span><span class="rs rs-hi">Elevated</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIBERS GET -->
+<section>
+  <div class="wrap">
+    <div class="s-label"><span data-lang="en" class="active">Subscribers Also Get</span><span data-lang="zh">訂閱者還獲得</span></div>
+    <h2 class="s-title"><span data-lang="en" class="active">Beyond the free preview.</span><span data-lang="zh">預覽之外的完整內容</span></h2>
+    <div class="feat-row">
+      <div class="feat-pill"><span class="fp-icon">📊</span><div class="fp-text"><strong><span data-lang="en" class="active">Full ETF Rankings</span><span data-lang="zh">完整 ETF 排名</span></strong><span data-lang="en" class="active">All 5 positions with momentum labels, not just top 2.</span><span data-lang="zh">全部 5 只倉位含動量標籤，而非僅前 2 只。</span></div></div>
+      <div class="feat-pill"><span class="fp-icon">🛡️</span><div class="fp-text"><strong><span data-lang="en" class="active">Full Risk Score</span><span data-lang="zh">完整風險評分</span></strong><span data-lang="en" class="active">Detailed 0–100 breakdown with component analysis.</span><span data-lang="zh">詳細 0–100 風險分解與各分項分析。</span></div></div>
+      <div class="feat-pill"><span class="fp-icon">📝</span><div class="fp-text"><strong><span data-lang="en" class="active">Full Research Notes</span><span data-lang="zh">完整研究備注</span></strong><span data-lang="en" class="active">Complete model diagnostic and market regime commentary.</span><span data-lang="zh">完整模型診斷與市場狀態評論。</span></div></div>
+      <div class="feat-pill"><span class="fp-icon">📚</span><div class="fp-text"><strong><span data-lang="en" class="active">Signal Archive</span><span data-lang="zh">歷史信號存檔</span></strong><span data-lang="en" class="active">Full historical database of all past model outputs.</span><span data-lang="zh">所有歷史模型輸出的完整數據庫。</span></div></div>
+      <div class="feat-pill"><span class="fp-icon">🔄</span><div class="fp-text"><strong><span data-lang="en" class="active">Market Alerts</span><span data-lang="zh">市場預警</span></strong><span data-lang="en" class="active">Unscheduled updates on major regime changes.</span><span data-lang="zh">重大市場狀態切換時的臨時預警更新。</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIMPLIFIED WEEKLY REPORT SAMPLE -->
+<section>
+  <div class="wrap">
+    <div class="s-label"><span data-lang="en" class="active">Historical Report Sample</span><span data-lang="zh">過往周報簡化樣本</span></div>
+    <h2 class="s-title">
+      <span data-lang="en" class="active">What a full weekly report looks like.</span>
+      <span data-lang="zh">完整周報的結構與内容</span>
+    </h2>
+    <p class="s-sub">
+      <span data-lang="en" class="active">Partially-redacted sample. Public: report structure, risk analysis, partial ETF examples, charts, market state. Hidden: complete positions, full rankings, parameters, rebalancing details.</span>
+      <span data-lang="zh">部分内容已遮蔽的樣本。公開：周報結構、風險分析、部分 ETF 示例、圖表、市場狀態。隱藏：完整倉位、完整排名、參數、調倉細節。</span>
+    </p>
+
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:18px;">
+      <span style="font-family:var(--fm);font-size:11px;display:flex;align-items:center;gap:6px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;"></span>✅ <span data-lang="en" class="active">Public</span><span data-lang="zh">公開</span></span>
+      <span style="font-family:var(--fm);font-size:11px;display:flex;align-items:center;gap:6px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block;"></span>⚠ <span data-lang="en" class="active">Partial</span><span data-lang="zh">部分公開</span></span>
+      <span style="font-family:var(--fm);font-size:11px;display:flex;align-items:center;gap:6px;"><span style="width:8px;height:8px;border-radius:50%;background:var(--t3);display:inline-block;"></span>❌ <span data-lang="en" class="active">Subscribers only</span><span data-lang="zh">訂閱者專屬</span></span>
+    </div>
+
+    <div class="report-wrap">
+      <div class="report-header">
+        <h3>ARL Weekly Research Report &nbsp;·&nbsp; <span data-lang="en" class="active">Week 20 · May 13, 2026</span><span data-lang="zh">第 20 週 · 2026 年 5 月 13 日</span></h3>
+        <div class="rh-meta"><span data-lang="en" class="active">US ETF Rotation Model · Published Tuesday after market close · All subscribers receive identical content</span><span data-lang="zh">美股 ETF 輪動模型 · 週二收盤後發佈 · 所有訂閱者收到相同内容</span></div>
+      </div>
+
+      <div class="report-section">
+        <div class="rs-header">
+          <span class="rs-title"><span data-lang="en" class="active">① Market Overview</span><span data-lang="zh">① 市場概覽</span></span>
+          <span class="rs-badge badge-public">✅ <span data-lang="en" class="active">Public</span><span data-lang="zh">公開</span></span>
+        </div>
+        <div class="regime-bar">
+          <div class="regime-pill">
+            <div>
+              <div class="rp-label"><span data-lang="en" class="active">Market Regime</span><span data-lang="zh">市場狀態</span></div>
+              <div class="rp-val">⚔ <span data-lang="en" class="active">Constructive</span><span data-lang="zh">建設性</span></div>
+            </div>
+          </div>
+          <div class="risk-bar-wrap">
+            <div class="risk-bar-label">
+              <span><span data-lang="en" class="active">Risk Score</span><span data-lang="zh">風險評分</span></span>
+              <span style="color:var(--gold);font-weight:700;">42 / 100</span>
+            </div>
+            <div class="risk-bar"><div class="risk-bar-fill" style="width:42%;"></div></div>
+            <div style="display:flex;justify-content:space-between;font-family:var(--fm);font-size:9px;color:var(--t3);margin-top:3px;">
+              <span>Low</span><span>High</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-section">
+        <div class="rs-header">
+          <span class="rs-title"><span data-lang="en" class="active">② ETF Signal Rankings</span><span data-lang="zh">② ETF 信號排名</span></span>
+          <span class="rs-badge badge-partial">⚠ <span data-lang="en" class="active">Partial (Top 2 public)</span><span data-lang="zh">部分公開（前 2 名）</span></span>
+        </div>
+        <div class="report-sig pub"><span class="sig-num">#1</span><span class="sig-ticker">QQQ</span><span class="sig-name">Invesco QQQ Trust — Nasdaq 100</span><span class="stag tag-pos" style="font-size:10px;">↑ <span data-lang="en" class="active">Positive</span><span data-lang="zh">正向</span></span></div>
+        <div class="report-sig pub2"><span class="sig-num">#2</span><span class="sig-ticker">XLK</span><span class="sig-name">Technology Select Sector SPDR</span><span class="stag tag-imp" style="font-size:10px;">↑ <span data-lang="en" class="active">Improving</span><span data-lang="zh">改善</span></span></div>
+        <div class="report-sig lock"><span class="sig-num">#3</span><span class="sig-ticker"><span class="redacted-block" style="width:40px;"></span></span><span class="sig-name"><span class="redacted-block" style="width:160px;"></span></span><span class="stag tag-lk" style="font-size:10px;">🔒</span></div>
+        <div class="report-sig lock"><span class="sig-num">#4</span><span class="sig-ticker"><span class="redacted-block" style="width:36px;"></span></span><span class="sig-name"><span class="redacted-block" style="width:140px;"></span></span><span class="stag tag-lk" style="font-size:10px;">🔒</span></div>
+        <div class="report-sig lock"><span class="sig-num">#5</span><span class="sig-ticker"><span class="redacted-block" style="width:32px;"></span></span><span class="sig-name"><span class="redacted-block" style="width:150px;"></span></span><span class="stag tag-lk" style="font-size:10px;">🔒</span></div>
+      </div>
+
+      <div class="report-section">
+        <div class="rs-header">
+          <span class="rs-title"><span data-lang="en" class="active">③ Risk Analysis</span><span data-lang="zh">③ 風險分析</span></span>
+          <span class="rs-badge badge-partial">⚠ <span data-lang="en" class="active">Partial</span><span data-lang="zh">部分公開</span></span>
+        </div>
+        <div class="risk-item"><span class="ri-label"><span data-lang="en" class="active">Trend Filter Status</span><span data-lang="zh">趨勢過濾器狀態</span></span><span class="ri-val" style="color:var(--green);">✓ <span data-lang="en" class="active">Above Threshold</span><span data-lang="zh">在閾值上方</span></span></div>
+        <div class="risk-item"><span class="ri-label"><span data-lang="en" class="active">Volatility Regime</span><span data-lang="zh">波動率狀態</span></span><span class="ri-val" style="color:var(--gold);"><span data-lang="en" class="active">Moderate — Stable</span><span data-lang="zh">溫和 — 穩定</span></span></div>
+        <div class="risk-item"><span class="ri-label"><span data-lang="en" class="active">Momentum Breadth</span><span data-lang="zh">動量廣度</span></span><span class="ri-redact">🔒 <span data-lang="en" class="active">Subscribers only</span><span data-lang="zh">訂閱者專屬</span></span></div>
+        <div class="risk-item"><span class="ri-label"><span data-lang="en" class="active">Cross-Asset Signals</span><span data-lang="zh">跨資產信號</span></span><span class="ri-redact">🔒 <span data-lang="en" class="active">Subscribers only</span><span data-lang="zh">訂閱者專屬</span></span></div>
+        <div class="risk-item"><span class="ri-label"><span data-lang="en" class="active">Risk Score Breakdown</span><span data-lang="zh">風險評分分解</span></span><span class="ri-redact">🔒 <span data-lang="en" class="active">Subscribers only</span><span data-lang="zh">訂閱者專屬</span></span></div>
+      </div>
+
+      <div class="report-section">
+        <div class="rs-header">
+          <span class="rs-title"><span data-lang="en" class="active">④ Market Commentary</span><span data-lang="zh">④ 市場評論</span></span>
+          <span class="rs-badge badge-partial">⚠ <span data-lang="en" class="active">Excerpt only</span><span data-lang="zh">節選</span></span>
+        </div>
+        <div class="commentary-fade">
+          <p style="font-size:13.5px;color:var(--t2);line-height:1.75;">
+            <span data-lang="en" class="active">Technology sector continues to demonstrate clear relative strength vs the broader market. Semiconductor names in particular have maintained momentum above the trend filter threshold for three consecutive weeks. Breadth conditions remain mixed but the leading sectors are clearly defined...</span>
+            <span data-lang="zh">科技板塊繼續展現出相對大盤的明顯超強勢頭。半導體細分品種尤其在過去三週連續保持在趨勢過濾閾值上方。廣泛市場參與度仍然參差，但領先板塊已清晰界定...</span>
+          </p>
+        </div>
+        <p style="font-family:var(--fm);font-size:10.5px;color:var(--t3);margin-top:8px;">🔒 <span data-lang="en" class="active">Full commentary (~400 words) available to subscribers</span><span data-lang="zh">完整評論（約 400 字）向訂閱者開放</span></p>
+      </div>
+
+      <div class="report-section" style="opacity:.55;">
+        <div class="rs-header">
+          <span class="rs-title"><span data-lang="en" class="active">⑤ Allocation Framework Reference</span><span data-lang="zh">⑤ 配置框架參考</span></span>
+          <span class="rs-badge badge-locked">❌ <span data-lang="en" class="active">Subscribers only</span><span data-lang="zh">訂閱者專屬</span></span>
+        </div>
+        <div class="locked-section"><div class="lock-line" style="width:80%;margin:0 auto 6px;"></div><div class="lock-line" style="width:65%;margin:0 auto 6px;"></div><div class="lock-line" style="width:72%;margin:0 auto 8px;"></div><div class="locked-label"><span data-lang="en" class="active">Illustrative allocation reference — Subscribers only</span><span data-lang="zh">配置框架說明 — 訂閱者專屬</span></div></div>
+      </div>
+
+      <div class="report-section" style="opacity:.55;">
+        <div class="rs-header">
+          <span class="rs-title"><span data-lang="en" class="active">⑥ Position Details &amp; Rebalancing</span><span data-lang="zh">⑥ 倉位詳情與調倉指引</span></span>
+          <span class="rs-badge badge-locked">❌ <span data-lang="en" class="active">Subscribers only</span><span data-lang="zh">訂閱者專屬</span></span>
+        </div>
+        <div class="locked-section"><div class="lock-line" style="width:75%;margin:0 auto 6px;"></div><div class="lock-line" style="width:58%;margin:0 auto 6px;"></div><div class="lock-line" style="width:70%;margin:0 auto 8px;"></div><div class="locked-label"><span data-lang="en" class="active">Complete positions, weightings, rebalancing signals — Subscribers only</span><span data-lang="zh">完整倉位、權重、調倉信號 — 訂閱者專屬</span></div></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:18px;">
+      <a href="subscribe.html" class="btn-o"><span data-lang="en" class="active">See full subscription plans →</span><span data-lang="zh">查看完整訂閱方案 →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATION SCHEDULE -->
+<section>
+  <div class="wrap">
+    <div class="s-label"><span data-lang="en" class="active">Publication Schedule</span><span data-lang="zh">發佈時間表</span></div>
+    <h2 class="s-title"><span data-lang="en" class="active">Consistent. Every week.</span><span data-lang="zh">一致。每週雷打不動。</span></h2>
+    <div class="sched-row"><span class="sday"><span data-lang="en" class="active">Monday</span><span data-lang="zh">週一</span></span><div><div class="stime"><span data-lang="en" class="active">Model Runs</span><span data-lang="zh">模型運行</span></div><div class="slbl"><span data-lang="en" class="active">Both models process after respective market closes. Signal generation, risk scoring, draft preparation.</span><span data-lang="zh">兩個模型分別於各自收盤後運行，信號生成、風險評分、研究草稿準備。</span></div></div></div>
+    <div class="sched-row"><span class="sday"><span data-lang="en" class="active">Tuesday</span><span data-lang="zh">週二</span></span><div><div class="stime"><span data-lang="en" class="active">Research Published</span><span data-lang="zh">研究發佈</span></div><div class="slbl"><span data-lang="en" class="active">Full research published to subscriber Notion page before next market open. Public preview released simultaneously. 9:00 AM ET.</span><span data-lang="zh">完整研究在下一個交易日開盤前發佈至訂閱者 Notion 頁面，公開預覽同步發佈。美東時間上午 9:00。</span></div></div></div>
+    <div class="sched-row"><span class="sday"><span data-lang="en" class="active">Ongoing</span><span data-lang="zh">不定期</span></span><div><div class="stime"><span data-lang="en" class="active">Market Alerts</span><span data-lang="zh">市場預警</span></div><div class="slbl"><span data-lang="en" class="active">Unscheduled updates when risk conditions shift materially — regime changes or significant volatility events.</span><span data-lang="zh">市場風險狀況出現實質性變化時（如狀態切換或重大波動事件），發出臨時研究更新。</span></div></div></div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section>
+  <div class="wrap">
+    <div class="s-label"><span data-lang="en" class="active">Disclaimer</span><span data-lang="zh">免責聲明</span></div>
+    <div class="disc">
+      <span data-lang="en" class="active"><strong>Alpha Rotation Lab is a research and educational publication.</strong> Nothing herein constitutes investment advice, financial advice, legal advice, tax advice, or a recommendation to buy or sell any security. This publication does not provide individualized recommendations. All model outputs are published uniformly to all subscribers.<br><br><strong>Disclosure:</strong> Author may hold positions in securities discussed.<br><strong>Performance Warning:</strong> Backtest and paper-trading results are hypothetical. They include 0.15%/trade cost but do not account for taxes, additional slippage, or market impact. Past performance does not guarantee future results.</span>
+      <span data-lang="zh"><strong>阿爾法輪動實驗室發佈的模型輸出是一個規則驅動的 ETF 輪動研究出版物。</strong>本出版物任何內容均不構成投資建議、財務建議、法律建議、稅務建議或任何買賣證券的推薦。不提供個性化建議。所有模型輸出均統一向所有訂閱者發佈。<br><br><strong>利益披露：</strong>作者可能持有所提及證券的倉位。<br><strong>業績警告：</strong>回測及模擬盤業績為假設性結果，含每筆 0.15% 交易成本，未扣除稅費、額外滑點及市場衝擊成本。歷史業績不代表未來表現。</span>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div class="foot-inner">
+    <div class="foot-logo"><svg width="30" height="30" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="#00D68F" stroke-width="2" fill="#020811"/><path d="M40 10C60 10 70 22 70 40S60 70 40 70" stroke="#00D68F" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M40 10C20 10 10 22 10 40S20 70 40 70" stroke="#4A9EFF" stroke-width="2.5" stroke-linecap="round" fill="none" stroke-dasharray="4 5"/><text x="40" y="49" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="bold" fill="#00D68F">α</text></svg>
+      <div><span class="foot-en">Alpha Rotation Lab</span><span class="foot-zh">阿爾法輪動實驗室</span></div>
+    </div>
+    <div class="foot-links"><a href="index.html" class="foot-link"><span data-lang="en" class="active">Home</span><span data-lang="zh">首頁</span></a><a href="research.html" class="foot-link"><span data-lang="en" class="active">Research</span><span data-lang="zh">研究</span></a><a href="sample.html" class="foot-link"><span data-lang="en" class="active">Publication</span><span data-lang="zh">發佈</span></a><a href="subscribe.html" class="foot-link"><span data-lang="en" class="active">Subscribe</span><span data-lang="zh">訂閱</span></a><a href="mailto:AlphaRotationLab@outlook.com" class="foot-link">AlphaRotationLab@outlook.com</a></div>
+  </div>
+  <div class="foot-copy">© <span id="copy-year">2026</span> Alpha Rotation Lab &nbsp;·&nbsp;
+    <span data-lang="en" class="active">Systematic Research · Not investment advice</span>
+    <span data-lang="zh">系統化研究 · 不構成投資建議</span>
+  </div>
+</div></footer>
+<script>
+function setLang(l){localStorage.setItem('arl_lang',l);document.querySelectorAll('[data-lang]').forEach(e=>e.classList.toggle('active',e.dataset.lang===l));document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',(l==='en'&&b.textContent.trim()==='EN')||(l==='zh'&&b.textContent.trim()==='中文')));document.documentElement.lang=l==='en'?'en':'zh-TW';}
+function switchMkt(m,b){document.querySelectorAll('.term-tab').forEach(t=>t.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.prod-panel').forEach(p=>p.classList.remove('active'));document.getElementById('panel-'+m).classList.add('active');}
+(function(){const s=localStorage.getItem('arl_lang'),b=(navigator.language||'en').toLowerCase();if((s||b).startsWith('zh'))setLang('zh');})();
+
+function toggleMobileNav() {
+  var nav = document.getElementById('mobile-nav');
+  var ham = document.getElementById('ham');
+  var open = nav.classList.toggle('open');
+  ham.classList.toggle('open', open);
+  ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+var cy=document.getElementById('copy-year');if(cy)cy.textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
