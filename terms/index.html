@@ -1,1 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Alpha Rotation Lab</title>
+<meta name="description" content="Terms of Service for Alpha Rotation Lab — a quantitative research and educational analytics platform.">
+<meta name="robots" content="index, follow">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050C1A;--card:#0F1E35;
+  --green:#00D68F;--gdim:#00D68F18;
+  --blue:#4A9EFF;--bdim:#4A9EFF12;
+  --t1:#EEF2FF;--t2:#8B9EC7;--t3:#4A5F84;
+  --b1:rgba(74,158,255,.12);
+  --fd:'Syne',system-ui,sans-serif;
+  --fb:'Outfit',system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+  --fm:'JetBrains Mono','Courier New',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:16px;line-height:1.7;overflow-x:hidden;}
+.grid-bg{position:fixed;inset:0;background-image:linear-gradient(rgba(74,158,255,.02)1px,transparent 1px),linear-gradient(90deg,rgba(74,158,255,.02)1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0;}
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(5,12,26,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--b1);}
+.nav-inner{max-width:860px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:58px;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-text{font-family:var(--fd);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--t1);}
+.nav-back{font-family:var(--fm);font-size:11px;color:var(--t3);text-decoration:none;display:flex;align-items:center;gap:6px;letter-spacing:.06em;transition:color .18s;}
+.nav-back:hover{color:var(--blue);}
+.lang-toggle{display:flex;background:var(--card);border:1px solid var(--b1);border-radius:7px;overflow:hidden;}
+.lang-btn{font-family:var(--fm);font-size:10.5px;font-weight:700;padding:5px 10px;letter-spacing:.06em;border:none;cursor:pointer;background:transparent;color:var(--t3);transition:all .18s;}
+.lang-btn.active{background:var(--bdim);color:var(--blue);}
+.nav-right{display:flex;align-items:center;gap:10px;}
+/* WRAP */
+.wrap{max-width:860px;margin:0 auto;padding:0 28px;position:relative;z-index:1;}
+/* LEGAL LAYOUT */
+.legal-header{padding:52px 0 36px;}
+.legal-badge{display:inline-flex;align-items:center;gap:7px;background:var(--gdim);border:1px solid rgba(0,214,143,.18);border-radius:6px;padding:4px 12px;font-family:var(--fm);font-size:10px;color:var(--green);letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;}
+.legal-title{font-family:var(--fd);font-size:clamp(28px,5vw,42px);font-weight:800;line-height:1.1;margin-bottom:10px;}
+.legal-meta{font-family:var(--fm);font-size:11.5px;color:var(--t3);letter-spacing:.05em;}
+.legal-body{padding-bottom:72px;}
+.legal-section{margin-bottom:40px;}
+.legal-section h2{font-family:var(--fd);font-size:18px;font-weight:800;color:var(--t1);margin-bottom:12px;padding-top:4px;}
+.legal-section p{font-size:14.5px;color:var(--t2);line-height:1.8;margin-bottom:10px;}
+.legal-section p:last-child{margin-bottom:0;}
+.legal-section ul{list-style:none;margin:10px 0 10px 4px;}
+.legal-section ul li{font-size:14px;color:var(--t2);padding:5px 0 5px 18px;position:relative;line-height:1.7;}
+.legal-section ul li::before{content:'·';position:absolute;left:0;color:var(--green);font-weight:700;}
+.legal-section strong{color:var(--t1);}
+.legal-section a{color:var(--blue);text-decoration:none;}
+.legal-section a:hover{text-decoration:underline;}
+/* Key sentence callout */
+.key-callout{background:rgba(0,214,143,.05);border:1px solid rgba(0,214,143,.2);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:14px 18px;margin:14px 0;font-size:14px;color:var(--t2);line-height:1.75;font-style:italic;}
+.key-callout strong{color:var(--green);font-style:normal;}
+/* Divider */
+hr{border:none;border-top:1px solid var(--b1);margin:36px 0;}
+/* FOOTER */
+footer{border-top:1px solid var(--b1);padding:28px 0;}
+.foot-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap;}
+.foot-link{font-family:var(--fm);font-size:11px;color:var(--t3);text-decoration:none;letter-spacing:.04em;transition:color .18s;}
+.foot-link:hover{color:var(--t2);}
+.foot-copy{font-size:10.5px;color:var(--t3);font-family:var(--fm);margin-top:12px;padding-top:12px;border-top:1px solid var(--b1);text-align:center;}
+/* Lang */
+[data-lang]{display:none;}[data-lang].active{display:block;}span[data-lang].active{display:inline;}
+@media(max-width:600px){.legal-header{padding:36px 0 24px;}.wrap{padding:0 18px;}}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<nav><div class="nav-inner">
+  <a href="https://alpharotationlab.github.io" class="nav-logo"><svg width="30" height="30" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="#00D68F" stroke-width="2" fill="#020811"/><path d="M40 10C60 10 70 22 70 40S60 70 40 70" stroke="#00D68F" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M40 10C20 10 10 22 10 40S20 70 40 70" stroke="#4A9EFF" stroke-width="2.5" stroke-linecap="round" fill="none" stroke-dasharray="4 5"/><text x="40" y="49" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="bold" fill="#00D68F">α</text></svg><span class="logo-text">Alpha Rotation Lab</span></a>
+  <div class="nav-right">
+    <a href="https://alpharotationlab.github.io" class="nav-back">← <span data-lang="en" class="active">Back to main site</span><span data-lang="zh">返回主頁</span></a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+    </div>
+  </div>
+</div></nav>
 
+<div class="wrap">
+  <div class="legal-header">
+    <div class="legal-badge">Legal</div>
+    <h1 class="legal-title">
+      <span data-lang="en" class="active">Terms of Service</span>
+      <span data-lang="zh">服務條款</span>
+    </h1>
+    <p class="legal-meta">
+      <span data-lang="en" class="active">Last updated: June 2026 · Effective immediately</span>
+      <span data-lang="zh">最後更新：2026年6月 · 立即生效</span>
+    </p>
+  </div>
+
+  <div class="legal-body">
+
+    <!-- 1. About the Service -->
+    <div class="legal-section">
+      <h2><span data-lang="en" class="active">1. About the Service</span><span data-lang="zh">1. 服務說明</span></h2>
+      <div class="key-callout">
+        <strong>Alpha Rotation Lab provides educational and informational research content only.</strong>
+        We publish systematic, rules-based quantitative model outputs covering ETF rotation analysis across US, A-share and Hong Kong markets.
+      </div>
+      <p>
+        <span data-lang="en" class="active">Alpha Rotation Lab ("we", "us", "our") is a quantitative research and educational analytics platform. Subscribers receive access to weekly model research outputs, historical backtest data, risk analysis, and related educational content delivered through a private Notion-based research portal.</span>
+        <span data-lang="zh">阿爾法輪動實驗室（「我們」）是一個量化研究與教育性分析平台。訂閱者可通過私有 Notion 研究平台獲取每週模型研究輸出、歷史回測數據、風險分析及相關教育性内容。</span>
+      </p>
+      <p>
+        <span data-lang="en" class="active">By accessing or subscribing to any part of our platform, you agree to be bound by these Terms of Service. If you do not agree, please do not use the service.</span>
+        <span data-lang="zh">通過訪問或訂閱我們平台的任何部分，即表示您同意受本服務條款約束。如不同意，請勿使用本服務。</span>
+      </p>
+    </div>
+
+    <hr>
+
+    <!-- 2. Not Financial Advice -->
+    <div class="legal-section">
+      <h2><span data-lang="en" class="active">2. Not Financial Advice</span><span data-lang="zh">2. 非財務建議</span></h2>
+      <div class="key-callout">
+        <strong>Nothing provided constitutes financial, legal, or investment advice.</strong>
+      </div>
+      <p>
+        <span data-lang="en" class="active">All content published by Alpha Rotation Lab — including but not limited to model outputs, ETF rankings, risk scores, research commentary, historical simulations, and educational materials — is provided strictly for informational and educational purposes only.</span>
+        <span data-lang="zh">阿爾法輪動實驗室發佈的所有内容——包括但不限於模型輸出、ETF 排名、風險評分、研究評論、歷史模擬及教育性材料——僅供資訊與教育目的，不構成任何財務、法律或投資建議。</span>
+      </p>
+      <p>
+        <span data-lang="en" class="active">Alpha Rotation Lab is not a registered investment adviser, broker-dealer, financial planner, or any other type of financial professional in any jurisdiction. We do not provide personalised investment recommendations, portfolio management services, or trading advice of any kind.</span>
+        <span data-lang="zh">阿爾法輪動實驗室在任何司法管轄區均非註冊投資顧問、證券經紀商、財務規劃師或任何類型的金融專業人士。我們不提供個性化投資建議、投資組合管理服務或任何形式的交易建議。</span>
+      </p>
+      <p>
+        <span data-lang="en" class="active">All model outputs are published uniformly to all subscribers simultaneously. No content is tailored to any individual subscriber's financial situation, objectives, or risk tolerance.</span>
+        <span data-lang="zh">所有模型輸出均同時統一向所有訂閱者發佈。所有内容均不針對任何個別訂閱者的財務狀況、目標或風險承受能力進行定制。</span>
+      </p>
+    </div>
+
+    <hr>
+
+    <!-- 3. User Responsibility -->
+    <div class="legal-section">
+      <h2><span data-lang="en" class="active">3. Your Responsibility</span><span data-lang="zh">3. 用戶責任</span></h2>
+      <p>
+        <span data-lang="en" class="active">You acknowledge and agree that:</span>
+        <span data-lang="zh">您確認並同意：</span>
+      </p>
+      <ul>
+        <li><span data-lang="en" class="active">You are solely responsible for all investment and financial decisions you make. Alpha Rotation Lab bears no responsibility for any such decisions.</span><span data-lang="zh">您對所有投資和財務決策負全部責任，阿爾法輪動實驗室對此不承擔任何責任。</span></li>
+        <li><span data-lang="en" class="active">You will conduct your own independent research and consult qualified financial professionals before making any financial decisions.</span><span data-lang="zh">在做出任何財務決策之前，您將自行進行獨立研究並諮詢合格的金融專業人士。</span></li>
+        <li><span data-lang="en" class="active">Investing involves substantial risk, including the possible loss of all invested capital. Past performance does not guarantee future results.</span><span data-lang="zh">投資存在重大風險，包括可能損失全部本金。歷史業績不保證未來收益。</span></li>
+        <li><span data-lang="en" class="active">Historical backtest results published on this platform are hypothetical simulations only, not actual trading results.</span><span data-lang="zh">本平台發佈的歷史回測結果僅為假設性模擬，並非實際交易結果。</span></li>
+      </ul>
+    </div>
+
+    <hr>
+
+    <!-- 4. Subscription & Billing -->
+    <div class="legal-section">
+      <h2><span data-lang="en" class="active">4. Subscription &amp; Billing</span><span data-lang="zh">4. 訂閱與付款</span></h2>
+      <p>
+        <span data-lang="en" class="active">Alpha Rotation Lab offers monthly subscription plans for access to digital research content. Subscriptions are billed monthly on a recurring basis.</span>
+        <span data-lang="zh">阿爾法輪動實驗室提供月度訂閱方案以訪問數字研究内容。訂閱按月自動循環計費。</span>
+      </p>
+      <ul>
+        <li><span data-lang="en" class="active">Payments are processed securely by our third-party payment provider, Paddle. By subscribing, you agree to Paddle's terms of service and privacy policy.</span><span data-lang="zh">付款由第三方支付服務商 Paddle 安全處理。訂閱即表示您同意 Paddle 的服務條款和隱私政策。</span></li>
+        <li><span data-lang="en" class="active">You may cancel your subscription at any time through the billing portal. Cancellation takes effect at the end of the current billing period.</span><span data-lang="zh">您可隨時通過帳單入口取消訂閱。取消將在當前計費週期結束時生效。</span></li>
+        <li><span data-lang="en" class="active">Prices are stated in USD and may be subject to applicable taxes depending on your location.</span><span data-lang="zh">價格以美元計，可能根據您所在地點適用相應稅費。</span></li>
+      </ul>
+    </div>
+
+    <hr>
+
+    <!-- 5. Digital Content & No Guarantee -->
+    <div class="legal-section">
+      <h2><span data-lang="en" class="active">5. Digital Content &amp; No Guarantee of Results</span><span data-lang="zh">5. 數字内容與無收益保證</span></h2>
+      <p>
+        <span data-lang="en" class="active">Our service provides access to digital research content in the form of weekly model publications, historical data, and educational materials. We do not guarantee:</span>
+        <span data-lang="zh">我們的服務提供以每週模型發佈、歷史數據和教育性材料形式存在的數字研究内容的訪問。我們不保證：</span>
+      </p>
+      <ul>
+        <li><span data-lang="en" class="active">Any specific financial return or investment outcome.</span><span data-lang="zh">任何特定財務回報或投資結果。</span></li>
+        <li><span data-lang="en" class="active">The accuracy, completeness, or timeliness of any model output or research content.</span><span data-lang="zh">任何模型輸出或研究内容的準確性、完整性或及時性。</span></li>
+        <li><span data-lang="en" class="active">Uninterrupted access to the platform or its content.</span><span data-lang="zh">對平台或其内容的不間斷訪問。</span></li>
+        <li><span data-lang="en" class="active">That any historical backtest performance will be replicated in live markets.</span><span data-lang="zh">任何歷史回測業績將在實際市場中重現。</span></li>
+      </ul>
+      <p>
+        <span data-lang="en" class="active">We reserve the right to modify, update, or discontinue any aspect of the research content, model methodology, or publication schedule at any time without prior notice.</span>
+        <span data-lang="zh">我們保留隨時修改、更新或停止研究内容、模型方法論或發佈時間表任何方面的權利，無需事先通知。</span>
+      </p>
+    </div>
+
+    <hr>
+
+    <!-- 6. Intellectual Property -->
+    <div class="legal-section">
+      <h2><span data-lang="en" class="active">6. Intellectual Property</span><span data-lang="zh">6. 知識產權</span></h2>
+      <p>
+        <span data-lang="en" class="active">All content published by Alpha Rotation Lab — including research reports, model outputs, methodology descriptions, charts, and written commentary — is the intellectual property of Alpha Rotation Lab and is protected by applicable copyright laws.</span>
+        <span data-lang="zh">阿爾法輪動實驗室發佈的所有内容——包括研究報告、模型輸出、方法論描述、圖表及文字評論——均為阿爾法輪動實驗室的知識產權，受適用版權法保護。</span>
+      </p>
+      <p>
+        <span data-lang="en" class="active">Subscribers are granted a personal, non-transferable, non-exclusive licence to access and view the content for personal, non-commercial use only. Reproduction, redistribution, resale, or public sharing of subscription content is strictly prohibited.</span>
+        <span data-lang="zh">訂閱者被授予個人的、不可轉讓的、非獨占的許可，僅可為個人非商業用途訪問和查看内容。嚴禁複製、再分發、轉售或公開分享訂閱内容。</span>
+      </p>
+    </div>
+
+    <hr>
+
+    <!-- 7. Disclaimer & Limitation of Liability -->
+    <div class="legal-section">
+      <h2><span data-lang="en" class="active">7. Disclaimer &amp; Limitation of Liability</span><span data-lang="zh">7. 免責聲明與責任限制</span></h2>
+      <p>
+        <span data-lang="en" class="active">THE SERVICE IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, ALPHA ROTATION LAB SHALL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, LOSS OF DATA, OR FINANCIAL LOSSES ARISING FROM:</span>
+        <span data-lang="zh">本服務按「現狀」提供，不提供任何明示或暗示的保證。在適用法律允許的最大範圍内，阿爾法輪動實驗室對以下任何直接、間接、附帶、特殊、後果性或懲罰性損害不承擔責任，包括但不限於利潤損失、數據損失或財務損失，此類損失源於：</span>
+      </p>
+      <ul>
+        <li><span data-lang="en" class="active">Your use of or reliance on any content provided by this service.</span><span data-lang="zh">您使用或依賴本服務提供的任何内容。</span></li>
+        <li><span data-lang="en" class="active">Any investment, financial, or trading decisions made based on this content.</span><span data-lang="zh">基於本内容所做的任何投資、財務或交易決策。</span></li>
+        <li><span data-lang="en" class="active">Any interruption or error in the service.</span><span data-lang="zh">服務的任何中斷或錯誤。</span></li>
+      </ul>
+      <p>
+        <span data-lang="en" class="active">In no event shall our total liability to you exceed the amount you paid for your current subscription period.</span>
+        <span data-lang="zh">在任何情況下，我們對您的總責任不超過您當前訂閱週期所支付的金額。</span>
+      </p>
+    </div>
+
+    <hr>
+
+    <!-- 8. Governing Law -->
+    <div class="legal-section">
+      <h2><span data-lang="en" class="active">8. Governing Law</span><span data-lang="zh">8. 適用法律</span></h2>
+      <p>
+        <span data-lang="en" class="active">These Terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from these Terms shall be resolved through good-faith negotiation in the first instance.</span>
+        <span data-lang="zh">本條款應受適用法律管轄並依其解釋。因本條款產生的任何爭議應首先通過善意協商解決。</span>
+      </p>
+    </div>
+
+    <hr>
+
+    <!-- 9. Changes & Contact -->
+    <div class="legal-section">
+      <h2><span data-lang="en" class="active">9. Changes to These Terms</span><span data-lang="zh">9. 條款變更</span></h2>
+      <p>
+        <span data-lang="en" class="active">We reserve the right to update these Terms at any time. Continued use of the service after changes have been posted constitutes your acceptance of the updated Terms. We will make reasonable efforts to notify subscribers of material changes.</span>
+        <span data-lang="zh">我們保留隨時更新本條款的權利。在更改發佈後繼續使用本服務即表示您接受更新後的條款。我們將合理努力通知訂閱者重大變更。</span>
+      </p>
+      <h2 style="margin-top:28px;"><span data-lang="en" class="active">10. Contact</span><span data-lang="zh">10. 聯繫方式</span></h2>
+      <p>
+        <span data-lang="en" class="active">For any questions regarding these Terms, please contact us at:</span>
+        <span data-lang="zh">如對本條款有任何疑問，請通過以下方式聯繫我們：</span>
+      </p>
+      <p><a href="mailto:AlphaRotationLab@outlook.com">AlphaRotationLab@outlook.com</a></p>
+    </div>
+
+  </div>
+</div>
+
+<footer><div class="wrap">
+  <div class="foot-row">
+    <div class="foot-links"><a href="/" class="foot-link">Terms</a><a href="/privacy" class="foot-link">Privacy</a><a href="/refund" class="foot-link">Refund</a><a href="mailto:AlphaRotationLab@outlook.com" class="foot-link">Contact</a></div>
+    <div style="font-family:var(--fm);font-size:11px;color:var(--t3);">
+      <span data-lang="en" class="active">Quantitative Research · Not financial advice</span>
+      <span data-lang="zh">量化研究 · 不構成財務建議</span>
+    </div>
+  </div>
+  <div class="foot-copy">© <span id="cy">2026</span> Alpha Rotation Lab · AlphaRotationLab@outlook.com</div>
+</div></footer>
+<script>
+function setLang(l){
+  localStorage.setItem('arl_lang',l);
+  document.querySelectorAll('[data-lang]').forEach(e=>e.classList.toggle('active',e.dataset.lang===l));
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',
+    (l==='en'&&b.textContent==='EN')||(l==='zh'&&b.textContent==='中文')));
+  document.documentElement.lang=l==='en'?'en':'zh-TW';
+}
+(function(){
+  var s=localStorage.getItem('arl_lang'),b=(navigator.language||'en').toLowerCase();
+  if((s||b).startsWith('zh'))setLang('zh');
+  var cy=document.getElementById('cy');
+  if(cy)cy.textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
