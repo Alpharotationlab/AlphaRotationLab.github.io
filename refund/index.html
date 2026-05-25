@@ -1,1 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refund Policy — Alpha Rotation Lab</title>
+<meta name="description" content="Refund Policy for Alpha Rotation Lab subscription service.">
+<meta name="robots" content="index, follow">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050C1A;--card:#0F1E35;
+  --green:#00D68F;--gdim:#00D68F18;
+  --blue:#4A9EFF;--bdim:#4A9EFF12;
+  --t1:#EEF2FF;--t2:#8B9EC7;--t3:#4A5F84;
+  --b1:rgba(74,158,255,.12);
+  --fd:'Syne',system-ui,sans-serif;
+  --fb:'Outfit',system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+  --fm:'JetBrains Mono','Courier New',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t1);font-family:var(--fb);font-size:16px;line-height:1.7;overflow-x:hidden;}
+.grid-bg{position:fixed;inset:0;background-image:linear-gradient(rgba(74,158,255,.02)1px,transparent 1px),linear-gradient(90deg,rgba(74,158,255,.02)1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0;}
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(5,12,26,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--b1);}
+.nav-inner{max-width:860px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:58px;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-text{font-family:var(--fd);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--t1);}
+.nav-back{font-family:var(--fm);font-size:11px;color:var(--t3);text-decoration:none;display:flex;align-items:center;gap:6px;letter-spacing:.06em;transition:color .18s;}
+.nav-back:hover{color:var(--blue);}
+.lang-toggle{display:flex;background:var(--card);border:1px solid var(--b1);border-radius:7px;overflow:hidden;}
+.lang-btn{font-family:var(--fm);font-size:10.5px;font-weight:700;padding:5px 10px;letter-spacing:.06em;border:none;cursor:pointer;background:transparent;color:var(--t3);transition:all .18s;}
+.lang-btn.active{background:var(--bdim);color:var(--blue);}
+.nav-right{display:flex;align-items:center;gap:10px;}
+/* WRAP */
+.wrap{max-width:860px;margin:0 auto;padding:0 28px;position:relative;z-index:1;}
+/* LEGAL LAYOUT */
+.legal-header{padding:52px 0 36px;}
+.legal-badge{display:inline-flex;align-items:center;gap:7px;background:var(--gdim);border:1px solid rgba(0,214,143,.18);border-radius:6px;padding:4px 12px;font-family:var(--fm);font-size:10px;color:var(--green);letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;}
+.legal-title{font-family:var(--fd);font-size:clamp(28px,5vw,42px);font-weight:800;line-height:1.1;margin-bottom:10px;}
+.legal-meta{font-family:var(--fm);font-size:11.5px;color:var(--t3);letter-spacing:.05em;}
+.legal-body{padding-bottom:72px;}
+.legal-section{margin-bottom:40px;}
+.legal-section h2{font-family:var(--fd);font-size:18px;font-weight:800;color:var(--t1);margin-bottom:12px;padding-top:4px;}
+.legal-section p{font-size:14.5px;color:var(--t2);line-height:1.8;margin-bottom:10px;}
+.legal-section p:last-child{margin-bottom:0;}
+.legal-section ul{list-style:none;margin:10px 0 10px 4px;}
+.legal-section ul li{font-size:14px;color:var(--t2);padding:5px 0 5px 18px;position:relative;line-height:1.7;}
+.legal-section ul li::before{content:'·';position:absolute;left:0;color:var(--green);font-weight:700;}
+.legal-section strong{color:var(--t1);}
+.legal-section a{color:var(--blue);text-decoration:none;}
+.legal-section a:hover{text-decoration:underline;}
+/* Key sentence callout */
+.key-callout{background:rgba(0,214,143,.05);border:1px solid rgba(0,214,143,.2);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:14px 18px;margin:14px 0;font-size:14px;color:var(--t2);line-height:1.75;font-style:italic;}
+.key-callout strong{color:var(--green);font-style:normal;}
+/* Divider */
+hr{border:none;border-top:1px solid var(--b1);margin:36px 0;}
+/* FOOTER */
+footer{border-top:1px solid var(--b1);padding:28px 0;}
+.foot-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap;}
+.foot-link{font-family:var(--fm);font-size:11px;color:var(--t3);text-decoration:none;letter-spacing:.04em;transition:color .18s;}
+.foot-link:hover{color:var(--t2);}
+.foot-copy{font-size:10.5px;color:var(--t3);font-family:var(--fm);margin-top:12px;padding-top:12px;border-top:1px solid var(--b1);text-align:center;}
+/* Lang */
+[data-lang]{display:none;}[data-lang].active{display:block;}span[data-lang].active{display:inline;}
+@media(max-width:600px){.legal-header{padding:36px 0 24px;}.wrap{padding:0 18px;}}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<nav><div class="nav-inner">
+  <a href="https://alpharotationlab.github.io" class="nav-logo"><svg width="30" height="30" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="#00D68F" stroke-width="2" fill="#020811"/><path d="M40 10C60 10 70 22 70 40S60 70 40 70" stroke="#00D68F" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M40 10C20 10 10 22 10 40S20 70 40 70" stroke="#4A9EFF" stroke-width="2.5" stroke-linecap="round" fill="none" stroke-dasharray="4 5"/><text x="40" y="49" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="bold" fill="#00D68F">α</text></svg><span class="logo-text">Alpha Rotation Lab</span></a>
+  <div class="nav-right">
+    <a href="https://alpharotationlab.github.io" class="nav-back">← <span data-lang="en" class="active">Back to main site</span><span data-lang="zh">返回主頁</span></a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+    </div>
+  </div>
+</div></nav>
 
+<div class="wrap">
+  <div class="legal-header">
+    <div class="legal-badge">Legal</div>
+    <h1 class="legal-title">
+      <span data-lang="en" class="active">Refund Policy</span>
+      <span data-lang="zh">退款政策</span>
+    </h1>
+    <p class="legal-meta">
+      <span data-lang="en" class="active">Last updated: June 2026 · Effective immediately</span>
+      <span data-lang="zh">最後更新：2026年6月 · 立即生效</span>
+    </p>
+  </div>
+
+  <div class="legal-body">
+
+    <!-- Overview -->
+    <div class="legal-section">
+      <h2><span data-lang="en" class="active">1. Overview</span><span data-lang="zh">1. 概述</span></h2>
+      <p>
+        <span data-lang="en" class="active">Alpha Rotation Lab offers monthly subscriptions to digital research content. Because our service consists entirely of digital content that is made accessible immediately upon subscription confirmation, we have a limited refund policy as described below.</span>
+        <span data-lang="zh">阿爾法輪動實驗室提供數字研究内容的月度訂閱服務。由於我們的服務完全由訂閱確認後立即可訪問的數字内容構成，我們的退款政策如下所述。</span>
+      </p>
+    </div>
+
+    <hr>
+
+    <!-- Monthly Subscriptions -->
+    <div class="legal-section">
+      <h2><span data-lang="en" class="active">2. Monthly Subscription Refunds</span><span data-lang="zh">2. 月度訂閱退款</span></h2>
+      <div class="key-callout">
+        <span data-lang="en" class="active"><strong>Refund requests may be considered within 7 days of the initial purchase date.</strong> If you are unsatisfied with the service for any reason within 7 days of your first subscription payment, please contact us and we will review your request.</span>
+        <span data-lang="zh"><strong>退款申請可在首次購買日期後 7 天内提出。</strong>如果您在首次訂閱付款後 7 天内因任何原因對服務不滿意，請聯繫我們，我們將審核您的申請。</span>
+      </div>
+      <p>
+        <span data-lang="en" class="active">After the initial 7-day period, and due to the digital nature of the product:</span>
+        <span data-lang="zh">在初始 7 天期限之後，由於產品的數字性質：</span>
+      </p>
+      <ul>
+        <li>
+          <span data-lang="en" class="active">Refunds are generally not provided after content access has been granted, unless required by applicable consumer protection laws in your jurisdiction.</span>
+          <span data-lang="zh">除非您所在司法管轄區的適用消費者保護法律另有要求，否則在授予内容訪問權限後通常不提供退款。</span>
+        </li>
+        <li>
+          <span data-lang="en" class="active">Renewal charges for subsequent billing periods are non-refundable. You may cancel your subscription at any time before the next renewal date to avoid future charges.</span>
+          <span data-lang="zh">後續計費週期的續訂費用不予退還。您可在下次續訂日期前隨時取消訂閱，以避免未來費用。</span>
+        </li>
+      </ul>
+    </div>
+
+    <hr>
+
+    <!-- Cancellation -->
+    <div class="legal-section">
+      <h2><span data-lang="en" class="active">3. Cancellation</span><span data-lang="zh">3. 取消訂閱</span></h2>
+      <p>
+        <span data-lang="en" class="active">You may cancel your subscription at any time. Cancellation is processed through the Paddle billing portal or by contacting us directly. Upon cancellation:</span>
+        <span data-lang="zh">您可隨時取消訂閱。取消通過 Paddle 帳單入口或直接聯繫我們處理。取消後：</span>
+      </p>
+      <ul>
+        <li>
+          <span data-lang="en" class="active">Your subscription remains active until the end of the current paid billing period.</span>
+          <span data-lang="zh">您的訂閱在當前已付費計費週期結束前保持有效。</span>
+        </li>
+        <li>
+          <span data-lang="en" class="active">No further charges will be made after cancellation takes effect.</span>
+          <span data-lang="zh">取消生效後不再產生任何費用。</span>
+        </li>
+        <li>
+          <span data-lang="en" class="active">Access to the private research portal will be removed at the end of the billing period.</span>
+          <span data-lang="zh">計費週期結束時將撤銷對私有研究平台的訪問權限。</span>
+        </li>
+      </ul>
+    </div>
+
+    <hr>
+
+    <!-- Exceptions -->
+    <div class="legal-section">
+      <h2><span data-lang="en" class="active">4. Exceptions &amp; Consumer Rights</span><span data-lang="zh">4. 例外情況與消費者權利</span></h2>
+      <p>
+        <span data-lang="en" class="active">Nothing in this Refund Policy is intended to limit or exclude rights that you may have under applicable consumer protection laws in your jurisdiction. If local laws provide you with additional rights to a refund, those rights will apply.</span>
+        <span data-lang="zh">本退款政策中的任何内容均不旨在限制或排除您根據所在司法管轄區適用消費者保護法律可能享有的權利。如果當地法律賦予您額外的退款權利，這些權利將適用。</span>
+      </p>
+      <p>
+        <span data-lang="en" class="active">Refunds may also be considered at our discretion in cases of:</span>
+        <span data-lang="zh">在以下情況下，我們也可酌情考慮退款：</span>
+      </p>
+      <ul>
+        <li><span data-lang="en" class="active">Technical failure that prevented you from accessing the service during a paid period, where we are unable to resolve the issue.</span><span data-lang="zh">在付費期間因技術故障導致您無法訪問服務，且我們無法解決該問題。</span></li>
+        <li><span data-lang="en" class="active">Duplicate or erroneous charges confirmed by our payment provider.</span><span data-lang="zh">由我們的支付服務商確認的重複或錯誤收費。</span></li>
+      </ul>
+    </div>
+
+    <hr>
+
+    <!-- How to Request -->
+    <div class="legal-section">
+      <h2><span data-lang="en" class="active">5. How to Request a Refund</span><span data-lang="zh">5. 如何申請退款</span></h2>
+      <p>
+        <span data-lang="en" class="active">To request a refund, please contact us at <a href="mailto:AlphaRotationLab@outlook.com">AlphaRotationLab@outlook.com</a> with:</span>
+        <span data-lang="zh">如需申請退款，請通過 <a href="mailto:AlphaRotationLab@outlook.com">AlphaRotationLab@outlook.com</a> 聯繫我們，並提供：</span>
+      </p>
+      <ul>
+        <li><span data-lang="en" class="active">Your subscription email address.</span><span data-lang="zh">您的訂閱電子郵箱地址。</span></li>
+        <li><span data-lang="en" class="active">Your Paddle order or transaction reference number.</span><span data-lang="zh">您的 Paddle 訂單或交易參考號。</span></li>
+        <li><span data-lang="en" class="active">The reason for your refund request.</span><span data-lang="zh">您申請退款的原因。</span></li>
+      </ul>
+      <p>
+        <span data-lang="en" class="active">We aim to respond to all refund requests within 3 business days. If approved, refunds are processed by Paddle and typically appear in your account within 5–10 business days, depending on your payment provider.</span>
+        <span data-lang="zh">我們力爭在 3 個工作日内回復所有退款申請。如獲批准，退款由 Paddle 處理，通常在 5–10 個工作日内根據您的支付服務商反映在您的帳戶中。</span>
+      </p>
+    </div>
+
+    <hr>
+
+    <!-- Contact -->
+    <div class="legal-section">
+      <h2><span data-lang="en" class="active">6. Contact</span><span data-lang="zh">6. 聯繫方式</span></h2>
+      <p>
+        <span data-lang="en" class="active">For any questions about this Refund Policy or to submit a refund request:</span>
+        <span data-lang="zh">如對本退款政策有任何疑問或需提交退款申請：</span>
+      </p>
+      <p><a href="mailto:AlphaRotationLab@outlook.com">AlphaRotationLab@outlook.com</a></p>
+      <p style="margin-top:10px;">
+        <span data-lang="en" class="active">We are committed to ensuring a fair and transparent experience for all subscribers.</span>
+        <span data-lang="zh">我們致力於為所有訂閱者提供公平透明的服務體驗。</span>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<footer><div class="wrap">
+  <div class="foot-row">
+    <div class="foot-links"><a href="/terms" class="foot-link">Terms</a><a href="/privacy" class="foot-link">Privacy</a><a href="/" class="foot-link">Refund</a><a href="mailto:AlphaRotationLab@outlook.com" class="foot-link">Contact</a></div>
+    <div style="font-family:var(--fm);font-size:11px;color:var(--t3);">
+      <span data-lang="en" class="active">Quantitative Research · Not financial advice</span>
+      <span data-lang="zh">量化研究 · 不構成財務建議</span>
+    </div>
+  </div>
+  <div class="foot-copy">© <span id="cy">2026</span> Alpha Rotation Lab · AlphaRotationLab@outlook.com</div>
+</div></footer>
+<script>
+function setLang(l){
+  localStorage.setItem('arl_lang',l);
+  document.querySelectorAll('[data-lang]').forEach(e=>e.classList.toggle('active',e.dataset.lang===l));
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',
+    (l==='en'&&b.textContent==='EN')||(l==='zh'&&b.textContent==='中文')));
+  document.documentElement.lang=l==='en'?'en':'zh-TW';
+}
+(function(){
+  var s=localStorage.getItem('arl_lang'),b=(navigator.language||'en').toLowerCase();
+  if((s||b).startsWith('zh'))setLang('zh');
+  var cy=document.getElementById('cy');
+  if(cy)cy.textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
