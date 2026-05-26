@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Publication — Alpha Rotation Lab</title>
-<meta name="description" content="Weekly published model output from Alpha Rotation Lab. Research delivery details, ETF signals, risk scores and a simplified weekly report sample.">
+<meta name="description" content="Weekly published research analysis from Alpha Rotation Lab. Research delivery details, ETF signals, risk scores and a simplified weekly report sample.">
 <meta property="og:title" content="Publication — Alpha Rotation Lab">
 <meta property="og:description" content="Weekly ETF rotation research. Free preview + simplified report sample.">
 <link rel="alternate" hreflang="en" href="?lang=en">
@@ -191,6 +191,54 @@ footer{padding:44px 0 24px;border-top:1px solid var(--b1);}
 .mobile-nav a span{font-size:11px;color:var(--t3);}
 @media(max-width:760px){.nav-links{display:none;}.hamburger{display:flex;}.logo-zh{display:none;}}
 [id]{scroll-margin-top:80px;}
+
+/* ── WEEKLY REPORT DOCUMENT STYLE ── */
+.rdoc-wrap{background:#020811;border:1px solid rgba(0,214,143,.17);border-radius:14px;overflow:hidden;font-family:var(--fb);}
+.rdoc-header{background:linear-gradient(135deg,rgba(0,214,143,.08),rgba(74,158,255,.06));padding:18px 24px;border-bottom:1px solid rgba(0,214,143,.14);}
+.rdoc-title{font-family:var(--fd);font-size:15px;font-weight:800;color:var(--t1);margin-bottom:5px;}
+.rdoc-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+.rdoc-meta-item{font-family:var(--fm);font-size:10.5px;color:var(--t3);letter-spacing:.06em;}
+.rdoc-meta-item.highlight{color:var(--green);background:var(--gdim);border:1px solid rgba(0,214,143,.2);padding:2px 8px;border-radius:4px;}
+.rdoc-body{padding:0;}
+.rdoc-section{padding:18px 24px;border-bottom:1px solid rgba(74,158,255,.06);}
+.rdoc-section:last-child{border-bottom:none;}
+.rdoc-section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.rdoc-section-title{font-family:var(--fd);font-size:13px;font-weight:800;color:var(--t1);}
+.rdoc-badge{font-family:var(--fm);font-size:9.5px;padding:2px 8px;border-radius:4px;font-weight:700;letter-spacing:.08em;}
+.badge-pub{color:var(--green);background:var(--gdim);border:1px solid rgba(0,214,143,.22);}
+.badge-lock{color:var(--t3);background:rgba(74,95,132,.1);border:1px solid var(--b1);}
+/* Summary blockquote */
+.rdoc-summary{background:rgba(0,214,143,.04);border-left:3px solid var(--green);padding:12px 16px;border-radius:0 8px 8px 0;font-size:13.5px;color:var(--t2);line-height:1.75;font-style:italic;margin:0;}
+/* Sub-section */
+.rdoc-sub{margin-bottom:14px;}
+.rdoc-sub:last-child{margin-bottom:0;}
+.rdoc-sub-title{font-family:var(--fm);font-size:10.5px;color:var(--blue);letter-spacing:.09em;text-transform:uppercase;margin-bottom:9px;}
+/* Report table */
+.rtbl{width:100%;border-collapse:collapse;font-size:12.5px;}
+.rtbl th{font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--t3);padding:7px 10px;text-align:left;border-bottom:1px solid var(--b1);}
+.rtbl td{padding:8px 10px;color:var(--t2);border-bottom:1px solid rgba(74,158,255,.05);vertical-align:middle;}
+.rtbl td:first-child{color:var(--t3);font-family:var(--fm);font-size:11px;}
+.rtbl td.val{font-weight:600;color:var(--t1);}
+.rtbl td.val-g{font-weight:700;color:var(--green);}
+.rtbl tr:last-child td{border-bottom:none;}
+.rtbl .dir-row td:first-child{font-size:13px;color:var(--t1);font-family:var(--fb);font-weight:600;}
+.momentum-tag{display:inline-flex;align-items:center;gap:5px;font-family:var(--fm);font-size:11px;font-weight:700;padding:3px 8px;border-radius:5px;}
+.mt-pos{color:var(--green);background:rgba(0,214,143,.1);border:1px solid rgba(0,214,143,.25);}
+.mt-neu{color:var(--gold);background:var(--ydim);border:1px solid rgba(245,166,35,.22);}
+/* Locked section overlay */
+.rdoc-locked{position:relative;overflow:hidden;}
+.rdoc-locked .rdoc-lock-content{filter:blur(4px);user-select:none;pointer-events:none;opacity:.35;}
+.rdoc-lock-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;z-index:2;}
+.rdoc-lock-msg{font-family:var(--fd);font-size:13px;font-weight:700;color:var(--t2);}
+.rdoc-lock-sub{font-family:var(--fm);font-size:11.5px;color:var(--t3);}
+/* Style tag */
+.style-tag{display:inline-flex;gap:5px;align-items:center;font-family:var(--fm);font-size:11px;color:var(--t2);background:rgba(255,255,255,.04);border:1px solid var(--b1);border-radius:5px;padding:3px 9px;}
+.style-tag.active{color:var(--green);border-color:rgba(0,214,143,.2);background:var(--gdim);}
+/* Report tab */
+.report-tabs{display:flex;margin-bottom:20px;background:var(--card);border:1px solid var(--b1);border-radius:8px;padding:3px;width:fit-content;}
+.report-tab{font-family:var(--fm);font-size:11px;font-weight:700;padding:6px 14px;border-radius:6px;cursor:pointer;border:none;background:transparent;color:var(--t3);transition:all .18s;letter-spacing:.05em;}
+.report-tab.active{background:var(--gdim);color:var(--green);border:1px solid rgba(0,214,143,.22);}
+.report-panel{display:none;}.report-panel.active{display:block;}
 </style>
 </head>
 <body>
@@ -224,16 +272,16 @@ footer{padding:44px 0 24px;border-top:1px solid var(--b1);}
             <span data-lang="zh">研究交付方式</span>
           </div>
           <div style="font-family:var(--fm);font-size:11px;color:var(--t3);letter-spacing:.07em;margin-top:2px;">
-            <span data-lang="en" class="active">How subscribers receive weekly model outputs</span>
-            <span data-lang="zh">訂閱用戶如何獲取每週模型輸出</span>
+            <span data-lang="en" class="active">How subscribers receive weekly research analysis outputs</span>
+            <span data-lang="zh">訂閱用戶如何獲取每週研究分析輸出</span>
           </div>
         </div>
       </div>
       <div class="delivery-body">
         <div class="delivery-col">
           <p>
-            <span data-lang="en" class="active">Subscribers receive weekly model outputs and research updates through a <strong style="color:var(--t1);">private Notion-based research portal</strong>. New model outputs are typically published every <strong style="color:var(--t1);">Tuesday at 9:00 AM ET</strong>.</span>
-            <span data-lang="zh">訂閱用戶將通過<strong style="color:var(--t1);">私有 Notion 研究平台</strong>獲取每週模型輸出與研究更新。最新模型輸出通常於每週二<strong style="color:var(--t1);">美東時間上午 9:00</strong> 發佈。</span>
+            <span data-lang="en" class="active">Subscribers receive weekly research analysis outputs and research updates through a <strong style="color:var(--t1);">private Notion-based research portal</strong>. New research analysis outputs are typically published every <strong style="color:var(--t1);">Tuesday at 9:00 AM ET</strong>.</span>
+            <span data-lang="zh">訂閱用戶將通過<strong style="color:var(--t1);">私有 Notion 研究平台</strong>獲取每週研究分析輸出與研究更新。最新研究分析輸出通常於每週二<strong style="color:var(--t1);">美東時間上午 9:00</strong> 發佈。</span>
           </p>
           <p>
             <span data-lang="en" class="active">Access is <strong style="color:var(--t1);">invitation-only</strong> and provided after subscription approval.</span>
@@ -243,7 +291,7 @@ footer{padding:44px 0 24px;border-top:1px solid var(--b1);}
         <div class="delivery-items">
           <h4><span data-lang="en" class="active">Updates may include</span><span data-lang="zh">更新內容可能包括</span></h4>
           <ul>
-            <li><span data-lang="en" class="active">Model output updates</span><span data-lang="zh">模型輸出更新</span></li>
+            <li><span data-lang="en" class="active">Research analysis updates</span><span data-lang="zh">研究分析輸出更新</span></li>
             <li><span data-lang="en" class="active">Output changes</span><span data-lang="zh">輸出變化</span></li>
             <li><span data-lang="en" class="active">Market observations</span><span data-lang="zh">市場觀察</span></li>
             <li><span data-lang="en" class="active">Research notes</span><span data-lang="zh">研究備注</span></li>
@@ -263,71 +311,389 @@ footer{padding:44px 0 24px;border-top:1px solid var(--b1);}
   <div class="wrap">
     <div class="s-label"><span data-lang="en" class="active">Weekly Publication Preview</span><span data-lang="zh">本週發佈預覽</span></div>
     <h1 class="s-title">
-      <span data-lang="en" class="active">This week's model output.<br>Two signals free.</span>
-      <span data-lang="zh">本週模型輸出<br>兩個信號免費公開</span>
+      <span data-lang="en" class="active">This week's research analysis.<br>Two observations free.</span>
+      <span data-lang="zh">本週研究分析<br>兩條觀察免費公開</span>
     </h1>
     <p class="s-sub">
       <span data-lang="en" class="active">Top 2 signals published free every week. Subscribe for complete rankings, full risk score breakdown, and research commentary.</span>
       <span data-lang="zh">每週前 2 個信號免費公開。訂閱後即可獲得完整排名、完整風險評分分解與研究評論。</span>
     </p>
-    <div class="update-badge">📅 <span data-lang="en" class="active">Last Research Update: May 13, 2026 (Week 20)</span><span data-lang="zh">最新研究更新：2026 年 5 月 13 日（第 20 週）</span></div>
+<!-- NEW WEEKLY REPORT PREVIEW — based on actual publication format -->
+    <div class="update-badge">📅 <span data-lang="en" class="active">Latest Research Update: May 25, 2026 (Week 22)</span><span data-lang="zh">最新研究更新：2026 年 5 月 25 日（第 22 週）</span></div>
 
-    <div class="term-tabs">
-      <button class="term-tab active" onclick="switchMkt('us',this)">🇺🇸 US ETF</button>
-      <button class="term-tab" onclick="switchMkt('cn',this)">🇨🇳 A-Share ETF</button>
+    <div class="report-tabs">
+      <button class="report-tab active" onclick="switchReport('cn',this)">🇨🇳 A-Share · W22</button>
+      <button class="report-tab" onclick="switchReport('us',this)">🇺🇸 US · W22</button>
     </div>
 
-    <div id="panel-us" class="prod-panel active">
-      <div class="term-wrap">
-        <div class="term-hd"><div class="tdot" style="background:#FF5F57"></div><div class="tdot" style="background:#FEBC2E"></div><div class="tdot" style="background:#28C840"></div><span class="tlabel">ARL · US ETF Rotation · Model Output · Week 20 · 2026</span></div>
-        <div class="term-body">
-          <div class="term-ts">Published: Tuesday, May 13, 2026 · After US Market Close · T+1</div>
-          <div class="tsummary">
-            <div class="tsi"><span class="tsi-l">Market Regime</span><span class="tsi-v bull">Constructive</span></div>
-            <div class="tsi"><span class="tsi-l">Risk Score</span><span class="tsi-v warn">42 / 100</span></div>
-            <div class="tsi"><span class="tsi-l">Top Sector</span><span class="tsi-v neu">Technology</span></div>
-            <div class="tsi"><span class="tsi-l">Bias</span><span class="tsi-v bull">Positive</span></div>
+    <!-- ═══ A-SHARE REPORT ═══ -->
+    <div id="rpanel-cn" class="report-panel active">
+      <div class="rdoc-wrap">
+        <!-- Header -->
+        <div class="rdoc-header">
+          <div class="rdoc-title">
+            <span data-lang="en" class="active">Alpha Rotation Lab · Premium Weekly Report · CNETF-2026-W22</span>
+            <span data-lang="zh">Alpha Rotation Lab · 高級訂閱周報 · CNETF-2026-W22</span>
           </div>
-          <div class="sig-row top"><div><div class="setf">QQQ</div><div class="sname">Invesco QQQ Trust — Nasdaq-100 · 🔓 Public</div></div><span class="stag tag-pos">Positive Momentum</span></div>
-          <div class="sig-row"><div><div class="setf">XLK</div><div class="sname">Technology Select Sector SPDR · 🔓 Public</div></div><span class="stag tag-imp">Improving Trend</span></div>
-          <div class="sig-row locked"><div><div class="setf" style="font-size:11px;color:var(--t3);">#3</div><div class="sname">Sector ETF · 🔒 Subscribers Only</div></div><span class="stag tag-lk">🔒</span></div>
-          <div class="sig-row locked"><div><div class="setf" style="font-size:11px;color:var(--t3);">#4</div><div class="sname">Sector ETF · 🔒 Subscribers Only</div></div><span class="stag tag-lk">🔒</span></div>
-          <div class="sig-row locked"><div><div class="setf" style="font-size:11px;color:var(--t3);">#5</div><div class="sname">Sector ETF · 🔒 Subscribers Only</div></div><span class="stag tag-lk">🔒</span></div>
-          <div class="lock-fade"><p>🔒 Full rankings + risk score + research notes — Subscribers only</p><small><a href="subscribe.html" style="color:var(--green);text-decoration:none;">Subscribe from $9.99 USD/mo →</a></small></div>
+          <div class="rdoc-meta">
+            <span class="rdoc-meta-item">📅 <span data-lang="en" class="active">2026-05-25 (Tue)</span><span data-lang="zh">2026-05-25（周二）</span></span>
+            <span class="rdoc-meta-item"><span data-lang="en" class="active">Model V3.6</span><span data-lang="zh">模型版本 V3.6</span></span>
+            <span class="rdoc-meta-item highlight"><span data-lang="en" class="active">FORMAL</span><span data-lang="zh">正式運行 FORMAL</span></span>
+            <span class="rdoc-meta-item"><span data-lang="en" class="active">A-Share ETF Rotation</span><span data-lang="zh">A 股 ETF 輪動</span></span>
+          </div>
+        </div>
+
+        <div class="rdoc-body">
+
+          <!-- ★ Summary — PUBLIC -->
+          <div class="rdoc-section">
+            <div class="rdoc-section-header">
+              <div class="rdoc-section-title">
+                <span data-lang="en" class="active">★ This Week's Summary</span>
+                <span data-lang="zh">★ 本周一句話摘要</span>
+              </div>
+              <span class="rdoc-badge badge-pub">✅ <span data-lang="en" class="active">Public</span><span data-lang="zh">公開</span></span>
+            </div>
+            <blockquote class="rdoc-summary">
+              <span data-lang="en" class="active">Market maintains full offensive posture. TMT technology, led by semiconductors, continues to dominate. Portfolio weekly outperformance reached +4.81pp. Noteworthy marginal development: A-share tech and overseas growth (Nasdaq +7.99%) formed a positive resonance — external environment shifted from divergence to convergence.</span>
+              <span data-lang="zh">市場維持滿倉進攻格局，TMT 科技以半導體為核心強勢領漲，組合週度超額達 +4.81pp；值得關注的邊際改善是 A 股科技與海外成長（納指 +7.99%）形成共振，外部環境由分歧轉向協同。</span>
+            </blockquote>
+          </div>
+
+          <!-- Section I: Core Conclusions — PUBLIC -->
+          <div class="rdoc-section">
+            <div class="rdoc-section-header">
+              <div class="rdoc-section-title">
+                <span data-lang="en" class="active">I. Core Conclusions</span>
+                <span data-lang="zh">一、本周核心結論</span>
+              </div>
+              <span class="rdoc-badge badge-pub">✅ <span data-lang="en" class="active">Public</span><span data-lang="zh">公開</span></span>
+            </div>
+
+            <!-- 1.1 Market State -->
+            <div class="rdoc-sub">
+              <div class="rdoc-sub-title">
+                <span data-lang="en" class="active">1.1 Market State &amp; Risk Exposure</span>
+                <span data-lang="zh">1.1 市場狀態與風險暴露</span>
+              </div>
+              <table class="rtbl">
+                <thead><tr>
+                  <th><span data-lang="en" class="active">Item</span><span data-lang="zh">項目</span></th>
+                  <th><span data-lang="en" class="active">This Week</span><span data-lang="zh">本周</span></th>
+                  <th><span data-lang="en" class="active">Last Week</span><span data-lang="zh">上周</span></th>
+                </tr></thead>
+                <tbody>
+                  <tr><td><span data-lang="en" class="active">Market State</span><span data-lang="zh">市場狀態</span></td><td class="val-g"><span data-lang="en" class="active">⚔ Offensive</span><span data-lang="zh">⚔ 進攻</span></td><td><span data-lang="en" class="active">⚔ Offensive</span><span data-lang="zh">⚔ 進攻</span></td></tr>
+                  <tr><td><span data-lang="en" class="active">Risk Exposure</span><span data-lang="zh">當前風險暴露</span></td><td class="val"><span data-lang="en" class="active">High (100% invested)</span><span data-lang="zh">高風險暴露（滿倉 100%）</span></td><td><span data-lang="en" class="active">High (100%)</span><span data-lang="zh">高風險暴露（滿倉 100%）</span></td></tr>
+                  <tr><td><span data-lang="en" class="active">Holdings Count</span><span data-lang="zh">輪動持倉數量</span></td><td class="val"><span data-lang="en" class="active">5 Directions</span><span data-lang="zh">5 個方向</span></td><td><span data-lang="en" class="active">5 Directions</span><span data-lang="zh">5 個方向</span></td></tr>
+                  <tr><td><span data-lang="en" class="active">Change</span><span data-lang="zh">狀態變化</span></td><td class="val"><span data-lang="en" class="active">Maintain offensive · 40% rotation</span><span data-lang="zh">維持進攻 · 換手 40%</span></td><td><span class="style-tag">—</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 1.2 Market Theme -->
+            <div class="rdoc-sub">
+              <div class="rdoc-sub-title">
+                <span data-lang="en" class="active">1.2 Market Theme &amp; Style</span>
+                <span data-lang="zh">1.2 市場主線與風格判斷</span>
+              </div>
+              <div style="font-size:13.5px;color:var(--t2);line-height:1.8;">
+                <p style="margin-bottom:8px;">
+                  <span data-lang="en" class="active"><strong style="color:var(--t1);">Current Theme:</strong> TMT Technology (Semiconductor/Chip) + Overseas Tech (Nasdaq)</span>
+                  <span data-lang="zh"><strong style="color:var(--t1);">當前主線：</strong>TMT 科技（半導體芯片）+ 海外科技（納指）</span>
+                </p>
+                <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:8px;">
+                  <span class="style-tag active"><span data-lang="en" class="active">Growth &gt; Value</span><span data-lang="zh">成長 &gt; 價值</span></span>
+                  <span class="style-tag"><span data-lang="en" class="active">Large &amp; Mid-cap balanced</span><span data-lang="zh">大盤 + 科創寬基並重</span></span>
+                  <span class="style-tag active"><span data-lang="en" class="active">Trend Continuation</span><span data-lang="zh">趨勢延續</span></span>
+                </div>
+                <p style="font-family:var(--fm);font-size:11px;color:var(--t3);">
+                  <span data-lang="en" class="active">Weekly characteristic: No sector rotation — tech leadership intact. Full theme details in subscriber report.</span>
+                  <span data-lang="zh">本周特徵：科技主線無切換。完整主線分析見訂閱者報告。</span>
+                </p>
+              </div>
+            </div>
+
+            <!-- 1.3 Free Direction Preview -->
+            <div class="rdoc-sub">
+              <div class="rdoc-sub-title">
+                <span data-lang="en" class="active">1.3 Free Direction Preview (First 2 of 5)</span>
+                <span data-lang="zh">1.3 免費方向預覽（前 2 個）</span>
+              </div>
+              <table class="rtbl">
+                <thead><tr>
+                  <th><span data-lang="en" class="active">Direction</span><span data-lang="zh">方向</span></th>
+                  <th><span data-lang="en" class="active">Momentum Research Status</span><span data-lang="zh">動量狀態</span></th>
+                  <th><span data-lang="en" class="active">Label</span><span data-lang="zh">標籤</span></th>
+                </tr></thead>
+                <tbody>
+                  <tr class="dir-row">
+                    <td><span data-lang="en" class="active">TMT Technology (Semiconductor / Chip)</span><span data-lang="zh">TMT 科技（半導體芯片）</span></td>
+                    <td><span class="momentum-tag mt-pos">↑ <span data-lang="en" class="active">Trend Above Filter</span><span data-lang="zh">正向動量</span></span></td>
+                    <td style="color:var(--green);font-family:var(--fm);font-size:12px;font-weight:700;">▶ <span data-lang="en" class="active">Leading</span><span data-lang="zh">領漲</span></td>
+                  </tr>
+                  <tr class="dir-row">
+                    <td><span data-lang="en" class="active">Broad Tech Growth (Sci-innovation)</span><span data-lang="zh">科創成長（硬科技寬基）</span></td>
+                    <td><span class="momentum-tag mt-pos">↑ <span data-lang="en" class="active">Trend Above Filter</span><span data-lang="zh">正向動量</span></span></td>
+                    <td style="color:var(--green);font-family:var(--fm);font-size:12px;font-weight:700;">▶ <span data-lang="en" class="active">Leading</span><span data-lang="zh">領漲</span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style="font-family:var(--fm);font-size:10.5px;color:var(--t3);margin-top:8px;letter-spacing:.04em;">
+                ⚠ <span data-lang="en" class="active">Research observations only. Not trading recommendations. For educational purposes.</span>
+                <span data-lang="zh">僅為研究觀察，非交易建議，僅供教育目的。</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Section II: Full Rankings — LOCKED -->
+          <div class="rdoc-section rdoc-locked">
+            <div class="rdoc-lock-content">
+              <div class="rdoc-section-header">
+                <div class="rdoc-section-title">
+                  <span data-lang="en" class="active">II. Full Direction Rankings (Directions 3–5)</span>
+                  <span data-lang="zh">二、完整方向排名（方向 3–5）</span>
+                </div>
+              </div>
+              <table class="rtbl">
+                <tbody>
+                  <tr class="dir-row"><td>Direction #3</td><td><span class="momentum-tag mt-pos">↑ Trend Above</span></td><td>▶</td></tr>
+                  <tr class="dir-row"><td>Direction #4</td><td><span class="momentum-tag mt-neu">◐ Neutral</span></td><td>◼</td></tr>
+                  <tr class="dir-row"><td>Direction #5</td><td><span class="momentum-tag mt-neu">◐ Neutral</span></td><td>◼</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="rdoc-lock-overlay">
+              <div class="rdoc-lock-msg">🔒 <span data-lang="en" class="active">Subscribers Only</span><span data-lang="zh">訂閱者專屬</span></div>
+              <div class="rdoc-lock-sub"><a href="subscribe.html" style="color:var(--green);text-decoration:none;font-family:var(--fm);font-size:11.5px;"><span data-lang="en" class="active">Subscribe from $9.99 USD/mo →</span><span data-lang="zh">低至 9.99 美元/月 → 立即訂閱</span></a></div>
+            </div>
+          </div>
+
+          <!-- Section III: Detailed Analysis — LOCKED -->
+          <div class="rdoc-section rdoc-locked">
+            <div class="rdoc-lock-content">
+              <div class="rdoc-section-header">
+                <div class="rdoc-section-title">
+                  <span data-lang="en" class="active">III. Detailed Theme Analysis &amp; Research Notes</span>
+                  <span data-lang="zh">三、主線詳細分析與研究備注</span>
+                </div>
+              </div>
+              <div style="font-size:13px;color:var(--t2);line-height:1.75;">
+                <p>████████████████████████████████████████████</p>
+                <p>████████████████████████████████████████████████████████</p>
+                <p>████████████████████████</p>
+              </div>
+            </div>
+            <div class="rdoc-lock-overlay">
+              <div class="rdoc-lock-msg">🔒 <span data-lang="en" class="active">Subscribers Only</span><span data-lang="zh">訂閱者專屬</span></div>
+            </div>
+          </div>
+
+          <!-- Section IV: Risk Monitoring — LOCKED -->
+          <div class="rdoc-section rdoc-locked">
+            <div class="rdoc-lock-content">
+              <div class="rdoc-section-header">
+                <div class="rdoc-section-title">
+                  <span data-lang="en" class="active">IV. Risk Monitoring &amp; Market Indicator Readings</span>
+                  <span data-lang="zh">四、風險監控與市場指標讀數</span>
+                </div>
+              </div>
+              <div style="font-size:13px;color:var(--t2);line-height:1.75;">
+                <p>████████████████████████████████████████████</p>
+                <p>████████████████████████████████████</p>
+              </div>
+            </div>
+            <div class="rdoc-lock-overlay">
+              <div class="rdoc-lock-msg">🔒 <span data-lang="en" class="active">Subscribers Only</span><span data-lang="zh">訂閱者專屬</span></div>
+            </div>
+          </div>
+
+        </div><!-- rdoc-body -->
+      </div><!-- rdoc-wrap -->
+    </div><!-- rpanel-cn -->
+
+
+    <!-- ═══ US REPORT ═══ -->
+    <div id="rpanel-us" class="report-panel">
+      <div class="rdoc-wrap">
+        <!-- Header -->
+        <div class="rdoc-header">
+          <div class="rdoc-title">
+            <span data-lang="en" class="active">Alpha Rotation Lab · Premium Weekly Report · USETF-2026-W22</span>
+            <span data-lang="zh">Alpha Rotation Lab · 高級訂閱周報 · USETF-2026-W22</span>
+          </div>
+          <div class="rdoc-meta">
+            <span class="rdoc-meta-item">📅 <span data-lang="en" class="active">2026-05-25 (Tue)</span><span data-lang="zh">2026-05-25（周二）</span></span>
+            <span class="rdoc-meta-item"><span data-lang="en" class="active">Model V6.2</span><span data-lang="zh">模型版本 V6.2</span></span>
+            <span class="rdoc-meta-item highlight"><span data-lang="en" class="active">FORMAL</span><span data-lang="zh">正式運行 FORMAL</span></span>
+            <span class="rdoc-meta-item"><span data-lang="en" class="active">US ETF Rotation</span><span data-lang="zh">美股 ETF 輪動</span></span>
+          </div>
+        </div>
+
+        <div class="rdoc-body">
+
+          <!-- ★ Summary -->
+          <div class="rdoc-section">
+            <div class="rdoc-section-header">
+              <div class="rdoc-section-title">
+                <span data-lang="en" class="active">★ This Week's Summary</span>
+                <span data-lang="zh">★ 本周一句話摘要</span>
+              </div>
+              <span class="rdoc-badge badge-pub">✅ <span data-lang="en" class="active">Public</span><span data-lang="zh">公開</span></span>
+            </div>
+            <blockquote class="rdoc-summary">
+              <span data-lang="en" class="active">Market maintains full offensive posture. AI and semiconductor complex continues to lead. Portfolio weekly outperformance reached +3.24pp. Notable: Nasdaq printed +7.99% on the week — largest single-week move this cycle — validating the growth-over-value thesis held since early April.</span>
+              <span data-lang="zh">市場維持滿倉進攻格局，AI 及半導體板塊繼續主導。組合週度超額達 +3.24pp。值得關注：納指本周錄得 +7.99%，為本輪最大單周漲幅，進一步驗證自 4 月初以來持續的成長優先研判。</span>
+            </blockquote>
+          </div>
+
+          <!-- Section I -->
+          <div class="rdoc-section">
+            <div class="rdoc-section-header">
+              <div class="rdoc-section-title">
+                <span data-lang="en" class="active">I. Core Conclusions</span>
+                <span data-lang="zh">一、本周核心結論</span>
+              </div>
+              <span class="rdoc-badge badge-pub">✅ <span data-lang="en" class="active">Public</span><span data-lang="zh">公開</span></span>
+            </div>
+
+            <!-- 1.1 -->
+            <div class="rdoc-sub">
+              <div class="rdoc-sub-title">
+                <span data-lang="en" class="active">1.1 Market State &amp; Risk Exposure</span>
+                <span data-lang="zh">1.1 市場狀態與風險暴露</span>
+              </div>
+              <table class="rtbl">
+                <thead><tr>
+                  <th><span data-lang="en" class="active">Item</span><span data-lang="zh">項目</span></th>
+                  <th><span data-lang="en" class="active">This Week</span><span data-lang="zh">本周</span></th>
+                  <th><span data-lang="en" class="active">Last Week</span><span data-lang="zh">上周</span></th>
+                </tr></thead>
+                <tbody>
+                  <tr><td><span data-lang="en" class="active">Market State</span><span data-lang="zh">市場狀態</span></td><td class="val-g"><span data-lang="en" class="active">⚔ Offensive</span><span data-lang="zh">⚔ 進攻</span></td><td><span data-lang="en" class="active">⚔ Offensive</span><span data-lang="zh">⚔ 進攻</span></td></tr>
+                  <tr><td><span data-lang="en" class="active">Risk Exposure</span><span data-lang="zh">當前風險暴露</span></td><td class="val"><span data-lang="en" class="active">High (100% invested)</span><span data-lang="zh">高風險暴露（滿倉 100%）</span></td><td><span data-lang="en" class="active">High (100%)</span><span data-lang="zh">高風險暴露（滿倉 100%）</span></td></tr>
+                  <tr><td><span data-lang="en" class="active">Holdings Count</span><span data-lang="zh">輪動持倉數量</span></td><td class="val"><span data-lang="en" class="active">5 Directions</span><span data-lang="zh">5 個方向</span></td><td><span data-lang="en" class="active">5 Directions</span><span data-lang="zh">5 個方向</span></td></tr>
+                  <tr><td><span data-lang="en" class="active">Change</span><span data-lang="zh">狀態變化</span></td><td class="val"><span data-lang="en" class="active">Maintain offensive · 20% rotation</span><span data-lang="zh">維持進攻 · 換手 20%</span></td><td><span class="style-tag">—</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- 1.2 -->
+            <div class="rdoc-sub">
+              <div class="rdoc-sub-title">
+                <span data-lang="en" class="active">1.2 Market Theme &amp; Style</span>
+                <span data-lang="zh">1.2 市場主線與風格判斷</span>
+              </div>
+              <div style="font-size:13.5px;color:var(--t2);line-height:1.8;">
+                <p style="margin-bottom:8px;">
+                  <span data-lang="en" class="active"><strong style="color:var(--t1);">Current Theme:</strong> Technology (AI / Semiconductors) + Industrials recovery</span>
+                  <span data-lang="zh"><strong style="color:var(--t1);">當前主線：</strong>科技（AI / 半導體）+ 工業復蘇</span>
+                </p>
+                <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:8px;">
+                  <span class="style-tag active"><span data-lang="en" class="active">Growth &gt; Value</span><span data-lang="zh">成長 &gt; 價值</span></span>
+                  <span class="style-tag active"><span data-lang="en" class="active">Large-cap focused</span><span data-lang="zh">偏大盤</span></span>
+                  <span class="style-tag active"><span data-lang="en" class="active">Trend Continuation</span><span data-lang="zh">趨勢延續</span></span>
+                </div>
+                <p style="font-family:var(--fm);font-size:11px;color:var(--t3);">
+                  <span data-lang="en" class="active">Weekly characteristic: Tech leadership intact, no sector rotation. Full theme analysis in subscriber report.</span>
+                  <span data-lang="zh">本周特徵：科技主線無切換。完整主線分析見訂閱者報告。</span>
+                </p>
+              </div>
+            </div>
+
+            <!-- 1.3 Free direction preview -->
+            <div class="rdoc-sub">
+              <div class="rdoc-sub-title">
+                <span data-lang="en" class="active">1.3 Free Direction Preview (First 2 of 5)</span>
+                <span data-lang="zh">1.3 免費方向預覽（前 2 個）</span>
+              </div>
+              <table class="rtbl">
+                <thead><tr>
+                  <th><span data-lang="en" class="active">Direction</span><span data-lang="zh">方向</span></th>
+                  <th><span data-lang="en" class="active">Momentum Research Status</span><span data-lang="zh">動量狀態</span></th>
+                  <th><span data-lang="en" class="active">Label</span><span data-lang="zh">標籤</span></th>
+                </tr></thead>
+                <tbody>
+                  <tr class="dir-row">
+                    <td><span data-lang="en" class="active">Technology (AI / Semiconductors)</span><span data-lang="zh">科技（AI / 半導體）</span></td>
+                    <td><span class="momentum-tag mt-pos">↑ <span data-lang="en" class="active">Trend Above Filter</span><span data-lang="zh">正向動量</span></span></td>
+                    <td style="color:var(--green);font-family:var(--fm);font-size:12px;font-weight:700;">▶ <span data-lang="en" class="active">Leading</span><span data-lang="zh">領漲</span></td>
+                  </tr>
+                  <tr class="dir-row">
+                    <td><span data-lang="en" class="active">Broad Technology (Nasdaq 100)</span><span data-lang="zh">寬基科技（納指 100）</span></td>
+                    <td><span class="momentum-tag mt-pos">↑ <span data-lang="en" class="active">Trend Above Filter</span><span data-lang="zh">正向動量</span></span></td>
+                    <td style="color:var(--green);font-family:var(--fm);font-size:12px;font-weight:700;">▶ <span data-lang="en" class="active">Leading</span><span data-lang="zh">領漲</span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style="font-family:var(--fm);font-size:10.5px;color:var(--t3);margin-top:8px;letter-spacing:.04em;">
+                ⚠ <span data-lang="en" class="active">Research observations only. Not trading recommendations. For educational purposes.</span>
+                <span data-lang="zh">僅為研究觀察，非交易建議，僅供教育目的。</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Locked II -->
+          <div class="rdoc-section rdoc-locked">
+            <div class="rdoc-lock-content">
+              <div class="rdoc-section-header">
+                <div class="rdoc-section-title">
+                  <span data-lang="en" class="active">II. Full Direction Rankings (Directions 3–5)</span>
+                  <span data-lang="zh">二、完整方向排名（方向 3–5）</span>
+                </div>
+              </div>
+              <table class="rtbl"><tbody>
+                <tr class="dir-row"><td>Direction #3</td><td><span class="momentum-tag mt-pos">↑ Trend Above</span></td><td>▶</td></tr>
+                <tr class="dir-row"><td>Direction #4</td><td><span class="momentum-tag mt-neu">◐ Neutral</span></td><td>◼</td></tr>
+                <tr class="dir-row"><td>Direction #5</td><td><span class="momentum-tag mt-neu">◐ Neutral</span></td><td>◼</td></tr>
+              </tbody></table>
+            </div>
+            <div class="rdoc-lock-overlay">
+              <div class="rdoc-lock-msg">🔒 <span data-lang="en" class="active">Subscribers Only</span><span data-lang="zh">訂閱者專屬</span></div>
+              <div class="rdoc-lock-sub"><a href="subscribe.html" style="color:var(--green);text-decoration:none;font-family:var(--fm);font-size:11.5px;"><span data-lang="en" class="active">Subscribe from $9.99 USD/mo →</span><span data-lang="zh">低至 9.99 美元/月 → 立即訂閱</span></a></div>
+            </div>
+          </div>
+
+          <!-- Locked III -->
+          <div class="rdoc-section rdoc-locked">
+            <div class="rdoc-lock-content">
+              <div class="rdoc-section-header">
+                <div class="rdoc-section-title">
+                  <span data-lang="en" class="active">III. Detailed Theme Analysis &amp; Research Notes</span>
+                  <span data-lang="zh">三、主線詳細分析與研究備注</span>
+                </div>
+              </div>
+              <div style="font-size:13px;color:var(--t2);line-height:1.75;">
+                <p>████████████████████████████████████████████</p>
+                <p>████████████████████████████████████████████████████████</p>
+                <p>████████████████████████</p>
+              </div>
+            </div>
+            <div class="rdoc-lock-overlay">
+              <div class="rdoc-lock-msg">🔒 <span data-lang="en" class="active">Subscribers Only</span><span data-lang="zh">訂閱者專屬</span></div>
+            </div>
+          </div>
+
+          <!-- Locked IV -->
+          <div class="rdoc-section rdoc-locked">
+            <div class="rdoc-lock-content">
+              <div class="rdoc-section-header">
+                <div class="rdoc-section-title">
+                  <span data-lang="en" class="active">IV. Risk Monitoring &amp; Market Indicator Readings</span>
+                  <span data-lang="zh">四、風險監控與市場指標讀數</span>
+                </div>
+              </div>
+              <div style="font-size:13px;color:var(--t2);"><p>████████████████████████████████████████████</p><p>████████████████████████████████████</p></div>
+            </div>
+            <div class="rdoc-lock-overlay">
+              <div class="rdoc-lock-msg">🔒 <span data-lang="en" class="active">Subscribers Only</span><span data-lang="zh">訂閱者專屬</span></div>
+            </div>
+          </div>
+
         </div>
       </div>
-      <div class="rnotes"><div class="rnotes-label">Research Notes — Public Excerpt</div><p><span data-lang="en" class="active">Market strength remains concentrated in technology-related sectors. Broader participation is mixed. Trend conditions remain constructive but volatility should be monitored. Risk score at 42 reflects a moderate environment.</span><span data-lang="zh">市場強勢持續集中於科技相關板塊，廣泛市場參與度仍然參差。趨勢條件維持建設性，但波動率仍需持續監測。模型風險評分 42 反映溫和環境。</span></p></div>
-      <div class="risk-row">
-        <div class="risk-circle"><span class="risk-n">42</span><span class="risk-d">/100</span></div>
-        <div class="risk-info"><h3><span data-lang="en" class="active">US Market Risk Level</span><span data-lang="zh">美股市場風險水平</span></h3><p><span data-lang="en" class="active">🟡 Moderate — Constructive but requires monitoring. Updated weekly.</span><span data-lang="zh">🟡 溫和 — 具建設性但需持續監測。每週更新。</span></p><div class="rscale"><span class="rs rs-lo">Low</span><span class="rs rs-me">Moderate ◀</span><span class="rs rs-hi">Elevated</span></div></div>
-      </div>
-    </div>
-
-    <div id="panel-cn" class="prod-panel">
-      <div class="term-wrap">
-        <div class="term-hd"><div class="tdot" style="background:#FF5F57"></div><div class="tdot" style="background:#FEBC2E"></div><div class="tdot" style="background:#28C840"></div><span class="tlabel">ARL · A 股 ETF 輪動 · 模型輸出 · 第 20 週 · 2026</span></div>
-        <div class="term-body">
-          <div class="term-ts">發佈時間：週二，2026年5月13日 · 收盤後分析 · T+1</div>
-          <div class="tsummary">
-            <div class="tsi"><span class="tsi-l"><span data-lang="en" class="active">Regime</span><span data-lang="zh">市場狀態</span></span><span class="tsi-v bull">建設性</span></div>
-            <div class="tsi"><span class="tsi-l"><span data-lang="en" class="active">Risk</span><span data-lang="zh">風險評分</span></span><span class="tsi-v warn">38 / 100</span></div>
-            <div class="tsi"><span class="tsi-l"><span data-lang="en" class="active">Top</span><span data-lang="zh">領先板塊</span></span><span class="tsi-v neu"><span data-lang="en" class="active">Technology</span><span data-lang="zh">科技</span></span></div>
-            <div class="tsi"><span class="tsi-l"><span data-lang="en" class="active">Bias</span><span data-lang="zh">信號偏向</span></span><span class="tsi-v bull"><span data-lang="en" class="active">Positive</span><span data-lang="zh">正向</span></span></div>
-          </div>
-          <div class="sig-row top"><div><div class="setf">510300</div><div class="sname">華泰柏瑞滬深300ETF · 🔓 <span data-lang="en" class="active">Public</span><span data-lang="zh">免費</span></div></div><span class="stag tag-pos"><span data-lang="en" class="active">Positive Momentum</span><span data-lang="zh">正向動量</span></span></div>
-          <div class="sig-row"><div><div class="setf">159995</div><div class="sname">華夏芯片ETF · 🔓 <span data-lang="en" class="active">Public</span><span data-lang="zh">免費</span></div></div><span class="stag tag-imp"><span data-lang="en" class="active">Improving Trend</span><span data-lang="zh">趨勢改善</span></span></div>
-          <div class="sig-row locked"><div><div class="setf" style="font-size:11px;color:var(--t3);">#3</div><div class="sname"><span data-lang="en" class="active">🔒 Subscribers Only</span><span data-lang="zh">🔒 訂閱者專屬</span></div></div><span class="stag tag-lk">🔒</span></div>
-          <div class="sig-row locked"><div><div class="setf" style="font-size:11px;color:var(--t3);">#4</div><div class="sname"><span data-lang="en" class="active">🔒 Subscribers Only</span><span data-lang="zh">🔒 訂閱者專屬</span></div></div><span class="stag tag-lk">🔒</span></div>
-          <div class="sig-row locked"><div><div class="setf" style="font-size:11px;color:var(--t3);">#5</div><div class="sname"><span data-lang="en" class="active">🔒 Subscribers Only</span><span data-lang="zh">🔒 訂閱者專屬</span></div></div><span class="stag tag-lk">🔒</span></div>
-          <div class="lock-fade"><p>🔒 <span data-lang="en" class="active">Full rankings → Subscribers only</span><span data-lang="zh">完整排名 → 僅限訂閱者</span></p><small><a href="subscribe.html" style="color:var(--green);text-decoration:none;"><span data-lang="en" class="active">Subscribe →</span><span data-lang="zh">立即訂閱 →</span></a></small></div>
-        </div>
-      </div>
-      <div class="rnotes"><div class="rnotes-label"><span data-lang="en" class="active">Research Notes — Public Excerpt</span><span data-lang="zh">研究備注 — 公開節選</span></div><p><span data-lang="en" class="active">A-share sector momentum concentrated in technology and semiconductors. Broader market participation improving marginally. Risk score at 38 reflects a moderate environment.</span><span data-lang="zh">A 股板塊動量集中於科技與半導體。廣泛市場參與度略有改善。風險評分 38 處溫和水平。</span></p></div>
-      <div class="risk-row">
-        <div class="risk-circle"><span class="risk-n">38</span><span class="risk-d">/100</span></div>
-        <div class="risk-info"><h3><span data-lang="en" class="active">A-Share Risk Level</span><span data-lang="zh">A 股市場風險水平</span></h3><p><span data-lang="en" class="active">🟡 Moderate. Updated weekly after A-share close.</span><span data-lang="zh">🟡 溫和。每週 A 股收盤後更新。</span></p><div class="rscale"><span class="rs rs-lo">Low</span><span class="rs rs-me">Moderate ◀</span><span class="rs rs-hi">Elevated</span></div></div>
-      </div>
-    </div>
+    </div><!-- rpanel-us -->
+    <!-- END REPORT PREVIEW -->
   </div>
 </section>
 
@@ -337,10 +703,10 @@ footer{padding:44px 0 24px;border-top:1px solid var(--b1);}
     <div class="s-label"><span data-lang="en" class="active">Subscribers Also Get</span><span data-lang="zh">訂閱者還獲得</span></div>
     <h2 class="s-title"><span data-lang="en" class="active">Beyond the free preview.</span><span data-lang="zh">預覽之外的完整內容</span></h2>
     <div class="feat-row">
-      <div class="feat-pill"><span class="fp-icon">📊</span><div class="fp-text"><strong><span data-lang="en" class="active">Full ETF Rankings</span><span data-lang="zh">完整 ETF 排名</span></strong><span data-lang="en" class="active">All 5 positions with momentum labels, not just top 2.</span><span data-lang="zh">全部 5 只倉位含動量標籤，而非僅前 2 只。</span></div></div>
+      <div class="feat-pill"><span class="fp-icon">📊</span><div class="fp-text"><strong><span data-lang="en" class="active">Full Direction Rankings</span><span data-lang="zh">完整方向排名</span></strong><span data-lang="en" class="active">All 5 ETF direction research entries with momentum labels, not just top 2.</span><span data-lang="zh">全部 5 個 ETF 方向研究條目含動量標籤，而非僅前 2 個。</span></div></div>
       <div class="feat-pill"><span class="fp-icon">🛡️</span><div class="fp-text"><strong><span data-lang="en" class="active">Full Risk Score</span><span data-lang="zh">完整風險評分</span></strong><span data-lang="en" class="active">Detailed 0–100 breakdown with component analysis.</span><span data-lang="zh">詳細 0–100 風險分解與各分項分析。</span></div></div>
       <div class="feat-pill"><span class="fp-icon">📝</span><div class="fp-text"><strong><span data-lang="en" class="active">Full Research Notes</span><span data-lang="zh">完整研究備注</span></strong><span data-lang="en" class="active">Complete model diagnostic and market regime commentary.</span><span data-lang="zh">完整模型診斷與市場狀態評論。</span></div></div>
-      <div class="feat-pill"><span class="fp-icon">📚</span><div class="fp-text"><strong><span data-lang="en" class="active">Signal Archive</span><span data-lang="zh">歷史信號存檔</span></strong><span data-lang="en" class="active">Full historical database of all past model outputs.</span><span data-lang="zh">所有歷史模型輸出的完整數據庫。</span></div></div>
+      <div class="feat-pill"><span class="fp-icon">📚</span><div class="fp-text"><strong><span data-lang="en" class="active">Research Archive</span><span data-lang="zh">歷史研究存檔</span></strong><span data-lang="en" class="active">Full historical database of all past research analysis outputs.</span><span data-lang="zh">所有歷史研究分析輸出的完整數據庫。</span></div></div>
       <div class="feat-pill"><span class="fp-icon">🔄</span><div class="fp-text"><strong><span data-lang="en" class="active">Market Alerts</span><span data-lang="zh">市場預警</span></strong><span data-lang="en" class="active">Unscheduled updates on major regime changes.</span><span data-lang="zh">重大市場狀態切換時的臨時預警更新。</span></div></div>
     </div>
   </div>
@@ -368,7 +734,7 @@ footer{padding:44px 0 24px;border-top:1px solid var(--b1);}
     <div class="report-wrap">
       <div class="report-header">
         <h3>ARL Weekly Research Report &nbsp;·&nbsp; <span data-lang="en" class="active">Week 20 · May 13, 2026</span><span data-lang="zh">第 20 週 · 2026 年 5 月 13 日</span></h3>
-        <div class="rh-meta"><span data-lang="en" class="active">US ETF Rotation Model · Published Tuesday after market close · All subscribers receive identical content</span><span data-lang="zh">美股 ETF 輪動模型 · 週二收盤後發佈 · 所有訂閱者收到相同内容</span></div>
+        <div class="rh-meta"><span data-lang="en" class="active">US ETF Rotation Research · Published Tuesday after market close · All subscribers receive identical content</span><span data-lang="zh">美股 ETF 輪動模型 · 週二收盤後發佈 · 所有訂閱者收到相同内容</span></div>
       </div>
 
       <div class="report-section">
@@ -398,11 +764,11 @@ footer{padding:44px 0 24px;border-top:1px solid var(--b1);}
 
       <div class="report-section">
         <div class="rs-header">
-          <span class="rs-title"><span data-lang="en" class="active">② ETF Model Rankings</span><span data-lang="zh">② ETF 信號排名</span></span>
+          <span class="rs-title"><span data-lang="en" class="active">② ETF Direction Rankings</span><span data-lang="zh">② ETF 方向排名</span></span>
           <span class="rs-badge badge-partial">⚠ <span data-lang="en" class="active">Partial (Top 2 public)</span><span data-lang="zh">部分公開（前 2 名）</span></span>
         </div>
-        <div class="report-sig pub"><span class="sig-num">#1</span><span class="sig-ticker">QQQ</span><span class="sig-name">Invesco QQQ Trust — Nasdaq 100</span><span class="stag tag-pos" style="font-size:10px;">↑ <span data-lang="en" class="active">Positive</span><span data-lang="zh">正向</span></span></div>
-        <div class="report-sig pub2"><span class="sig-num">#2</span><span class="sig-ticker">XLK</span><span class="sig-name">Technology Select Sector SPDR</span><span class="stag tag-imp" style="font-size:10px;">↑ <span data-lang="en" class="active">Improving</span><span data-lang="zh">改善</span></span></div>
+        <div class="report-sig pub"><span class="sig-num">#1</span><span class="sig-ticker" style="font-size:12px;"><span data-lang="en" class="active">Technology</span><span data-lang="zh">科技</span></span><span class="stag tag-pos" style="font-size:10px;">↑ <span data-lang="en" class="active">Positive</span><span data-lang="zh">正向</span></span></div>
+        <div class="report-sig pub2"><span class="sig-num">#2</span><span class="sig-ticker" style="font-size:12px;"><span data-lang="en" class="active">Semiconductors</span><span data-lang="zh">半導體</span></span><span class="stag tag-imp" style="font-size:10px;">↑ <span data-lang="en" class="active">Improving</span><span data-lang="zh">改善</span></span></div>
         <div class="report-sig lock"><span class="sig-num">#3</span><span class="sig-ticker"><span class="redacted-block" style="width:40px;"></span></span><span class="sig-name"><span class="redacted-block" style="width:160px;"></span></span><span class="stag tag-lk" style="font-size:10px;">🔒</span></div>
         <div class="report-sig lock"><span class="sig-num">#4</span><span class="sig-ticker"><span class="redacted-block" style="width:36px;"></span></span><span class="sig-name"><span class="redacted-block" style="width:140px;"></span></span><span class="stag tag-lk" style="font-size:10px;">🔒</span></div>
         <div class="report-sig lock"><span class="sig-num">#5</span><span class="sig-ticker"><span class="redacted-block" style="width:32px;"></span></span><span class="sig-name"><span class="redacted-block" style="width:150px;"></span></span><span class="stag tag-lk" style="font-size:10px;">🔒</span></div>
@@ -447,7 +813,7 @@ footer{padding:44px 0 24px;border-top:1px solid var(--b1);}
           <span class="rs-title"><span data-lang="en" class="active">⑥ Allocation Details</span><span data-lang="zh">⑥ 配置詳情</span></span>
           <span class="rs-badge badge-locked">❌ <span data-lang="en" class="active">Subscribers only</span><span data-lang="zh">訂閱者專屬</span></span>
         </div>
-        <div class="locked-section"><div class="lock-line" style="width:75%;margin:0 auto 6px;"></div><div class="lock-line" style="width:58%;margin:0 auto 6px;"></div><div class="lock-line" style="width:70%;margin:0 auto 8px;"></div><div class="locked-label"><span data-lang="en" class="active">Allocation model outputs — Subscribers only</span><span data-lang="zh">配置模型輸出 — 訂閱者專屬</span></div></div>
+        <div class="locked-section"><div class="lock-line" style="width:75%;margin:0 auto 6px;"></div><div class="lock-line" style="width:58%;margin:0 auto 6px;"></div><div class="lock-line" style="width:70%;margin:0 auto 8px;"></div><div class="locked-label"><span data-lang="en" class="active">Allocation research analysis outputs — Subscribers only</span><span data-lang="zh">配置研究分析輸出 — 訂閱者專屬</span></div></div>
       </div>
     </div>
     <div style="text-align:center;margin-top:18px;">
@@ -472,8 +838,8 @@ footer{padding:44px 0 24px;border-top:1px solid var(--b1);}
   <div class="wrap">
     <div class="s-label"><span data-lang="en" class="active">Disclaimer</span><span data-lang="zh">免責聲明</span></div>
     <div class="disc">
-      <span data-lang="en" class="active"><strong>Alpha Rotation Lab is a research and educational publication.</strong> Nothing herein constitutes investment advice, financial advice, legal advice, tax advice, or a recommendation to buy or sell any security. This publication does not provide individualized recommendations. All model outputs are published uniformly to all subscribers.<br><br><strong>Disclosure:</strong> Author may hold positions in securities discussed.<br><strong>Performance Warning:</strong> Backtest and paper-trading results are hypothetical. They include 0.15%/trade cost but do not account for taxes, additional slippage, or market impact. Past performance does not guarantee future results.</span>
-      <span data-lang="zh"><strong>阿爾法輪動實驗室發佈的模型輸出是一個規則驅動的 ETF 輪動研究出版物。</strong>本出版物任何內容均不構成投資建議、財務建議、法律建議、稅務建議或任何買賣證券的推薦。不提供個性化建議。所有模型輸出均統一向所有訂閱者發佈。<br><br><strong>利益披露：</strong>作者可能持有所提及證券的倉位。<br><strong>業績警告：</strong>回測及模擬盤業績為假設性結果，含每筆 0.15% 交易成本，未扣除稅費、額外滑點及市場衝擊成本。歷史業績不代表未來表現。</span>
+      <span data-lang="en" class="active"><strong>Alpha Rotation Lab is a research and educational publication.</strong> Nothing herein constitutes investment advice, financial advice, legal advice, tax advice, or a recommendation to buy or sell any security. This publication does not provide individualized recommendations. All research analysis outputs are published uniformly to all subscribers.<br><br><strong>Disclosure:</strong> Author may hold positions in securities discussed.<br><strong>Performance Warning:</strong> Backtest and paper-trading results are hypothetical. They include 0.15%/trade cost but do not account for taxes, additional slippage, or market impact. Past performance does not guarantee future results.</span>
+      <span data-lang="zh"><strong>阿爾法輪動實驗室發佈的研究分析輸出是一個規則驅動的 ETF 輪動研究出版物。</strong>本出版物任何內容均不構成投資建議、財務建議、法律建議、稅務建議或任何買賣證券的推薦。不提供個性化建議。所有研究分析輸出均統一向所有訂閱者發佈。<br><br><strong>利益披露：</strong>作者可能持有所提及證券的倉位。<br><strong>業績警告：</strong>回測及模擬盤業績為假設性結果，含每筆 0.15% 交易成本，未扣除稅費、額外滑點及市場衝擊成本。歷史業績不代表未來表現。</span>
     </div>
   </div>
 </section>
@@ -483,7 +849,10 @@ footer{padding:44px 0 24px;border-top:1px solid var(--b1);}
     <div class="foot-logo"><svg width="30" height="30" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="38" stroke="#00D68F" stroke-width="2" fill="#020811"/><path d="M40 10C60 10 70 22 70 40S60 70 40 70" stroke="#00D68F" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M40 10C20 10 10 22 10 40S20 70 40 70" stroke="#4A9EFF" stroke-width="2.5" stroke-linecap="round" fill="none" stroke-dasharray="4 5"/><text x="40" y="49" text-anchor="middle" font-family="Georgia,serif" font-size="26" font-weight="bold" fill="#00D68F">α</text></svg>
       <div><span class="foot-en">Alpha Rotation Lab</span><span class="foot-zh">阿爾法輪動實驗室</span></div>
     </div>
-    <div class="foot-links"><a href="index.html" class="foot-link"><span data-lang="en" class="active">Home</span><span data-lang="zh">首頁</span></a><a href="research.html" class="foot-link"><span data-lang="en" class="active">Research</span><span data-lang="zh">研究</span></a><a href="sample.html" class="foot-link"><span data-lang="en" class="active">Publication</span><span data-lang="zh">發佈</span></a><a href="subscribe.html" class="foot-link"><span data-lang="en" class="active">Subscribe</span><span data-lang="zh">訂閱</span></a><a href="mailto:AlphaRotationLab@outlook.com" class="foot-link">AlphaRotationLab@outlook.com</a></div>
+    <div class="foot-links"><a href="index.html" class="foot-link"><span data-lang="en" class="active">Home</span><span data-lang="zh">首頁</span></a><a href="research.html" class="foot-link"><span data-lang="en" class="active">Research</span><span data-lang="zh">研究</span></a><a href="sample.html" class="foot-link"><span data-lang="en" class="active">Publication</span><span data-lang="zh">發佈</span></a><a href="subscribe.html" class="foot-link"><span data-lang="en" class="active">Subscribe</span><span data-lang="zh">訂閱</span></a><a href="/terms" class="foot-link"><span data-lang="en" class="active">Terms</span><span data-lang="zh">服務條款</span></a>
+        <a href="/privacy" class="foot-link"><span data-lang="en" class="active">Privacy</span><span data-lang="zh">隱私政策</span></a>
+        <a href="/refund" class="foot-link"><span data-lang="en" class="active">Refund</span><span data-lang="zh">退款政策</span></a>
+        <a href="mailto:AlphaRotationLab@outlook.com" class="foot-link">AlphaRotationLab@outlook.com</a></div>
   </div>
   <div class="foot-copy">© <span id="copy-year">2026</span> Alpha Rotation Lab &nbsp;·&nbsp;
     <span data-lang="en" class="active">Systematic Research · Not investment advice</span>
@@ -492,6 +861,12 @@ footer{padding:44px 0 24px;border-top:1px solid var(--b1);}
 </div></footer>
 <script>
 function setLang(l){localStorage.setItem('arl_lang',l);document.querySelectorAll('[data-lang]').forEach(e=>e.classList.toggle('active',e.dataset.lang===l));document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',(l==='en'&&b.textContent.trim()==='EN')||(l==='zh'&&b.textContent.trim()==='中文')));document.documentElement.lang=l==='en'?'en':'zh-TW';}
+function switchReport(r,b){
+  document.querySelectorAll('.report-tab').forEach(t=>t.classList.remove('active'));
+  b.classList.add('active');
+  document.querySelectorAll('.report-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('rpanel-'+r).classList.add('active');
+}
 function switchMkt(m,b){document.querySelectorAll('.term-tab').forEach(t=>t.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.prod-panel').forEach(p=>p.classList.remove('active'));document.getElementById('panel-'+m).classList.add('active');}
 (function(){const s=localStorage.getItem('arl_lang'),b=(navigator.language||'en').toLowerCase();if((s||b).startsWith('zh'))setLang('zh');})();
 
